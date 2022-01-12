@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Installation
+parent: PHP
 nav_order: 3
 ---
 

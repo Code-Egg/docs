@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Configuration
+parent: PHP
 nav_order: 2
 ---
 
