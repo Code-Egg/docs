@@ -1,0 +1,1 @@
+https://openlitespeed.org/kb/setting-up-name-based-virtual-hosting-on-openlitespeed/

@@ -1,0 +1,1 @@
+https://docs.litespeedtech.com/cloud/images/
