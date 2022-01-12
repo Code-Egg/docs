@@ -1,1 +1,0 @@
-https://openlitespeed.org/kb/install-ols-from-litespeed-repositories/

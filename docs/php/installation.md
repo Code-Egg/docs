@@ -1,1 +1,0 @@
-https://docs.litespeedtech.com/extapp/php/getting_started/

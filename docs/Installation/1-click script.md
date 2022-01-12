@@ -1,1 +1,0 @@
-https://openlitespeed.org/kb/1-click-install/

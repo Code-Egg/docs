@@ -1,1 +1,0 @@
-https://openlitespeed.org/kb/ssl-setup/
