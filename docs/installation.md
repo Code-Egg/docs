@@ -26,17 +26,18 @@ sudo wget -O - http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | 
 ```
 For CentOS, run the following command to install LiteSpeed Repository
 
-AlmaLinux 8 & CentOS 8: 
+- AlmaLinux 8 & CentOS 8: 
 ```
 rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el8.noarch.rpm
 ```
-CentOS 7:
+- CentOS 7:
 ```
 rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
 ```
 
 ### Install OpenLiteSpeed
 {: .no_toc .text-delta }
+
 For Debian/Ubuntum,
 ```
 apt-get install openlitespeed
@@ -49,10 +50,12 @@ yum install openlitespeed
 
 ### Install PHP
 {: .no_toc .text-delta }
+
 internal url
 
 
 ## Install from One-Click Script
+
 To install OpenLiteSpeed, LSPHP, MariaDB, WordPress, and LiteSpeed Cache plugin,
 ```
 bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh ) -w
@@ -63,6 +66,7 @@ bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/
 ```
 ### Options
 {: .no_toc .text-delta }
+
 | Opt  | Options                        | Description                                                                                 |
 | :--: | ------------------------------ | ------------------------------------------------------------------------------------------- |
 | `-A` | `--adminpassword [PASSWORD]`   | To set the WebAdmin password for OpenLiteSpeed instead of using a random one.               |
@@ -98,7 +102,26 @@ bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/
 | ` ./ols1clk.sh -R 123456 -W  `       | To install OpenLiteSpeed with WordPress and MySQL root password "123456".           |
 | `./ols1clk.sh --wordpressplus a.com` | To install OpenLiteSpeed with a fully configured WordPress installation at "a.com". |
 
-## Install from Cloud Images
-[To get high performance web servers with applications including WordPress, Django, NodeJS, Rails, Control Panels and more](https://docs.litespeedtech.com/cloud/images/)
-## Install from Docker
-[Launch an Existing Image from Docker Hub](https://docs.litespeedtech.com/cloud/docker/)
+## Launch an Existing Image
+
+||||||||
+| :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
+|   |[<img src="/assets/images/Cloud/wp_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/wordpress/)|[<img src="/assets/images/Cloud/cyberpanel_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/cyberpanel/) |[<img src="/assets/images/Cloud/django_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/django/) | [<img src="/assets/images/Cloud/nodejs_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/nodejs/)|[<img src="/assets/images/Cloud/ruby_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/rails/)|[<img src="/assets/images/Cloud/lsws_50.svg" width = "100">](https://www.litespeedtech.com/)|
+||[WordPress Instructions](https://docs.litespeedtech.com/cloud/wordpress/)|[CyberPanel Instructions](https://docs.litespeedtech.com/cloud/cyberpanel/)|[Django Instructions](https://docs.litespeedtech.com/cloud/django/)|[NodeJS Instructions](https://docs.litespeedtech.com/cloud/nodejs/)|[Rails Instructions](https://docs.litespeedtech.com/cloud/rails/)|[LiteSpeed Instructions](https://www.litespeedtech.com/)|
+| [**DigitalOcean**](https://marketplace.digitalocean.com/category/blogs-and-forums)  | [Launch](https://cloud.digitalocean.com/droplets/new?image=litespeedtechnol-openlitespeedwor-18-04&utm_source=openlitespeed&utm_campaign=openlitespeed-wp)  | [Launch](https://cloud.digitalocean.com/droplets/new?image=cyberpanel-18-04&utm_source=cyberpanel&utm_campaign=cyberpanel) | [Launch](https://cloud.digitalocean.com/droplets/new?image=openlitespeed-django-18-04&utm_source=openlitespeed&utm_campaign=openlitespeed-django) | [Launch](https://cloud.digitalocean.com/droplets/new?image=openlitespeed-node-18-04&utm_source=openlitespeed&utm_campaign=openlitespeed-node) | [Launch](https://cloud.digitalocean.com/droplets/new?image=litespeedtechnol-openlitespeedrai-20-04&utm_source=openlitespeed&utm_campaign=openlitespeed-rails) | - |
+|[**GCP**](https://console.cloud.google.com/marketplace/browse?q=litespeed)|[Launch](https://console.cloud.google.com/marketplace/details/gc-image-pub/openlitespeed-wordpress)| [Launch](https://console.cloud.google.com/marketplace/details/gc-image-pub/cyberpanel) | [Launch](https://console.cloud.google.com/marketplace/details/gc-image-pub/openlitespeed-django) | [Launch](https://console.cloud.google.com/marketplace/details/gc-image-pub/openlitespeed-nodejs) |[Launch](https://console.cloud.google.com/marketplace/details/gc-image-pub/openlitespeed-rails)| - |
+|[**AWS**](https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=litespeed)|[Launch](https://aws.amazon.com/marketplace/pp/B07KSC2QQN)|[Launch](https://aws.amazon.com/marketplace/pp/B07MPZQ4PS)|[Launch](https://aws.amazon.com/marketplace/pp/B07MZ6VVRD)|[Launch](https://aws.amazon.com/marketplace/pp/B07MZ393TM)|[Launch](http://aws.amazon.com/marketplace/pp/B08JVDJQ1L)|[Launch](https://aws.amazon.com/marketplace/pp/prodview-jekwzwpttueu2)|
+|[**Azure**](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=litespeed)|[Launch](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/litespeedtechnologies.openlitespeed-wordpress)|[Launch](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/litespeedtechnologies.cyberpanel)|[Launch](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/litespeedtechnologies.openlitespeed-django)|[Launch](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/litespeedtechnologies.openlitespeed-nodejs)|[Launch](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/litespeedtechnologies.openlitespeed-rails)| - |
+|[**Alibaba**](https://marketplace.alibabacloud.com/)|[Launch](https://marketplace.alibabacloud.com/products/56720001/OpenLiteSpeed_WordPress_em_-sgcmjj00024846.html)|[Launch](https://marketplace.alibabacloud.com/products/56720001/sgcmjj00024863.html)|[Launch](https://marketplace.alibabacloud.com/products/56720001/OpenLiteSpeed_Django-sgcmjj00024874.html)|[Launch](https://marketplace.alibabacloud.com/products/56720001/sgcmjj00024862.html)|[Launch](https://marketplace.alibabacloud.com/products/56720001/sgcmjj00024972.html)| - |
+|[**Linode**](https://www.linode.com/marketplace/apps/?sq=litespeed)|[Launch](https://www.linode.com/marketplace/apps/litespeed-technologies/openlitespeed-wordpress/)|[Launch](https://www.linode.com/marketplace/apps/litespeed-technologies/cyberpanel/)|[Launch](https://cloud.linode.com/stackscripts/458602)|[Launch](https://cloud.linode.com/stackscripts/458633)|[Launch](https://cloud.linode.com/stackscripts/641872)|[Launch](https://www.linode.com/marketplace/apps/litespeed-technologies/litespeed-cpanel/)|
+|[**Vultr**](https://www.vultr.com/marketplace/)|[Launch](https://www.vultr.com/marketplace/apps/openlitespeed-wordpress)|[Launch](https://www.vultr.com/marketplace/apps/cyberpanel)|[Launch](https://www.vultr.com/marketplace/apps/openlitespeed-django)|[Launch](https://www.vultr.com/marketplace/apps/openlitespeed-nodejs)|[Launch](https://www.vultr.com/marketplace/apps/openlitespeed-rails)| - |
+
+
+## Launch from Docker
+
+Launch an Existing Image from [Docker Hub](https://hub.docker.com/search?q=litespeedtech&type=image)
+||||
+| :-------------: | :-------------: | :-------------: |
+||![ols](/assets/images/Cloud/docker-ols-logo_160x160.png)|![lsws](/assets/images/Cloud/docker-lsws_160x160.png)|
+|Server Only|OpenLiteSpeed<br>[Instructions](openlitespeed.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/openlitespeed-beta)|LiteSpeed Enterprise<br>[Instructions](litespeed.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/litespeed-beta)|
+|Server + WordPress|OLS+WP<br>[Instructions](ols+wordpress.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/openlitespeed-beta)|LSWS+WP<BR>[Instructions](lsws+wordpress.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/litespeed-beta)|
