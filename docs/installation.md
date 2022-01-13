@@ -69,7 +69,7 @@ To install OpenLiteSpeed and lsphp,
 ```
 bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh )
 ```
-Few more examples
+More examples
 
 | Examples                             | Description                                                                         |
 | ------------------------------------ | ----------------------------------------------------------------------------------- |
@@ -97,7 +97,7 @@ Few more examples
 
 Launch an Existing Image from [Docker Hub](https://hub.docker.com/search?q=litespeedtech&type=image)
 
-||![ols](/docs/assets/images/Cloud/docker-ols-logo_160x160.png)|![lsws](/docs/assets/images/Cloud/docker-lsws_160x160.png)|
-| :-------------: | :-------------: | :-------------: |
-|Server Only|OpenLiteSpeed<br>[Instructions](openlitespeed.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/openlitespeed-beta)|LiteSpeed Enterprise<br>[Instructions](litespeed.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/litespeed-beta)|
-|Server + WordPress|OLS+WP<br>[Instructions](ols+wordpress.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/openlitespeed-beta)|LSWS+WP<BR>[Instructions](lsws+wordpress.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/litespeed-beta)|
+||![ols](/docs/assets/images/Cloud/docker-ols-logo_160x160.png)|
+| :-------------: | :-------------: |
+|Server Only|OpenLiteSpeed<br>[Instructions](https://docs.litespeedtech.com/cloud/docker/openlitespeed/)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/openlitespeed)|
+|Server + WordPress|OLS+WP<br>[Instructions](https://docs.litespeedtech.com/cloud/docker/ols%2Bwordpress/)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/openlitespeed)|
