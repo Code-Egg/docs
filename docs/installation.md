@@ -11,7 +11,7 @@ permalink: /installation
 ---
 
 ### Supported OS 
-{: .no_toc .text-delta }
+{: .no_toc}
 - [Debian 7, 8, 9, 10](https://www.debian.org/distrib/)
 - [Ubuntu 16, 18, 20](https://www.ubuntu.com/download)
 - [CentOS 6, 7, 8](https://www.centos.org/download/)
@@ -36,7 +36,7 @@ rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.r
 ```
 
 ### Install OpenLiteSpeed
-{: .no_toc .text-delta }
+{: .no_toc}
 
 For Debian/Ubuntum,
 ```
