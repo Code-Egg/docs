@@ -80,7 +80,7 @@ More examples
 | `./ols1clk.sh -R 123456 -W`          | To install OpenLiteSpeed with WordPress and MySQL root password "123456".           |
 | `./ols1clk.sh --wordpressplus a.com` | To install OpenLiteSpeed with a fully configured WordPress installation at "a.com". |
 
-## Launch an Existing Image
+## Launch from Existing Image
 
 |   |[<img src="/docs/assets/images/Cloud/wp_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/wordpress/)|[<img src="/docs/assets/images/Cloud/cyberpanel_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/cyberpanel/) |[<img src="/docs/assets/images/Cloud/django_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/django/) | [<img src="/docs/assets/images/Cloud/nodejs_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/nodejs/)|[<img src="/docs/assets/images/Cloud/ruby_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/rails/)|
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
