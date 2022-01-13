@@ -74,16 +74,15 @@ Few more examples
 | Examples                             | Description                                                                         |
 | ------------------------------------ | ----------------------------------------------------------------------------------- |
 | `./ols1clk.sh`                       | To install OpenLiteSpeed with a random WebAdmin password.                           |
-| ` ./ols1clk.sh --lsphp 80  `         | To install OpenLiteSpeed with lsphp80.                                              |
+| `./ols1clk.sh --lsphp 80`            | To install OpenLiteSpeed with lsphp80.                                              |
 | `./ols1clk.sh -A 123456 -e a@cc.com` | To install OpenLiteSpeed with WebAdmin password "123456" and email <a@cc.com>.      |
-| ` ./ols1clk.sh -R 123456 -W  `       | To install OpenLiteSpeed with WordPress and MySQL root password "123456".           |
+| `./ols1clk.sh -R 123456 -W`          | To install OpenLiteSpeed with WordPress and MySQL root password "123456".           |
 | `./ols1clk.sh --wordpressplus a.com` | To install OpenLiteSpeed with a fully configured WordPress installation at "a.com". |
 
 ## Launch an Existing Image
 
-|||||||
-| :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
 |   |[<img src="/docs/assets/images/Cloud/wp_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/wordpress/)|[<img src="/docs/assets/images/Cloud/cyberpanel_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/cyberpanel/) |[<img src="/docs/assets/images/Cloud/django_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/django/) | [<img src="/docs/assets/images/Cloud/nodejs_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/nodejs/)|[<img src="/docs/assets/images/Cloud/ruby_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/rails/)|
+| :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
 ||[WordPress](https://docs.litespeedtech.com/cloud/wordpress/)|[CyberPanel](https://docs.litespeedtech.com/cloud/cyberpanel/)|[Django](https://docs.litespeedtech.com/cloud/django/)|[NodeJS](https://docs.litespeedtech.com/cloud/nodejs/)|[Rails](https://docs.litespeedtech.com/cloud/rails/)|
 | [**DigitalOcean**](https://marketplace.digitalocean.com/category/blogs-and-forums)  | [Launch](https://cloud.digitalocean.com/droplets/new?image=litespeedtechnol-openlitespeedwor-18-04&utm_source=openlitespeed&utm_campaign=openlitespeed-wp)  | [Launch](https://cloud.digitalocean.com/droplets/new?image=cyberpanel-18-04&utm_source=cyberpanel&utm_campaign=cyberpanel) | [Launch](https://cloud.digitalocean.com/droplets/new?image=openlitespeed-django-18-04&utm_source=openlitespeed&utm_campaign=openlitespeed-django) | [Launch](https://cloud.digitalocean.com/droplets/new?image=openlitespeed-node-18-04&utm_source=openlitespeed&utm_campaign=openlitespeed-node) | [Launch](https://cloud.digitalocean.com/droplets/new?image=litespeedtechnol-openlitespeedrai-20-04&utm_source=openlitespeed&utm_campaign=openlitespeed-rails) |
 |[**GCP**](https://console.cloud.google.com/marketplace/browse?q=litespeed)|[Launch](https://console.cloud.google.com/marketplace/details/gc-image-pub/openlitespeed-wordpress)| [Launch](https://console.cloud.google.com/marketplace/details/gc-image-pub/cyberpanel) | [Launch](https://console.cloud.google.com/marketplace/details/gc-image-pub/openlitespeed-django) | [Launch](https://console.cloud.google.com/marketplace/details/gc-image-pub/openlitespeed-nodejs) |[Launch](https://console.cloud.google.com/marketplace/details/gc-image-pub/openlitespeed-rails)|
@@ -98,8 +97,7 @@ Few more examples
 
 Launch an Existing Image from [Docker Hub](https://hub.docker.com/search?q=litespeedtech&type=image)
 
-||||
-| :-------------: | :-------------: | :-------------: |
 ||![ols](/docs/assets/images/Cloud/docker-ols-logo_160x160.png)|![lsws](/docs/assets/images/Cloud/docker-lsws_160x160.png)|
+| :-------------: | :-------------: | :-------------: |
 |Server Only|OpenLiteSpeed<br>[Instructions](openlitespeed.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/openlitespeed-beta)|LiteSpeed Enterprise<br>[Instructions](litespeed.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/litespeed-beta)|
 |Server + WordPress|OLS+WP<br>[Instructions](ols+wordpress.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/openlitespeed-beta)|LSWS+WP<BR>[Instructions](lsws+wordpress.md)<br>[Launch](https://hub.docker.com/repository/docker/litespeedtech/litespeed-beta)|
