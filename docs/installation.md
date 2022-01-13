@@ -25,13 +25,14 @@ permalink: /installation
 
 ## Install from LiteSpeed Repository
 
-For Debian/Ubuntum, run the following command to install LiteSpeed Repository
+### Install LiteSpeed Repository
+{: .no_toc}
+
+- Debian/Ubuntum
 ```
 sudo wget -O - http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | sudo bash
 ```
-For CentOS, run the following command to install LiteSpeed Repository
-
-- AlmaLinux 8 & CentOS 8: 
+- AlmaLinux 8 & CentOS 8:
 ```
 rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el8.noarch.rpm
 ```
