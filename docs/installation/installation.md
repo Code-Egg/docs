@@ -2,7 +2,6 @@
 layout: default
 title: Installation
 nav_order: 1
-has_children: true
 permalink: /installation
 ---
 
@@ -44,6 +43,7 @@ apt-get install openlitespeed
 ```
 For CentOS,
 ```
+yum install epel-release
 yum install openlitespeed
 ```
 
