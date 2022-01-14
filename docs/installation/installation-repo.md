@@ -7,6 +7,7 @@ permalink: /docs/installation/repo
 ---
 
 # Install from LiteSpeed Repository
+{: .no_toc} 
 
 <details open markdown="block">
   <summary>
