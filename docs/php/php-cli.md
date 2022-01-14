@@ -49,7 +49,7 @@ extProcessor lsphp80{
 }
 ```
 
-### Set up Script Handlers 
+## Set up Script Handlers 
 
 Add the following to the `httpd_config.conf` file:
 
