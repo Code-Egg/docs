@@ -1,198 +1,198 @@
 ---
 layout: default
 title: Configuration
-nav_order: 5
+permalink: /configuration
+nav_order: 3
 ---
 
-# Configuration
-{: .no_toc }
-
-
-Just the Docs has some specific configuration parameters that can be defined in your Jekyll site's _config.yml file.
-{: .fs-6 .fw-300 }
-
-## Table of contents
-{: .no_toc .text-delta }
-
+---
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
 1. TOC
 {:toc}
 
+</details>
 ---
 
+## Virtual Host Setup
 
-View this site's [_config.yml](https://github.com/pmarsceill/just-the-docs/tree/master/_config.yml) file as an example.
+With name-based virtual hosting, you can host more than one website (virtual host) on each IP address.
 
+### Setup DNS Properly
 
-## Site logo
+Forward the domain names of your web sites to the IP address used by your web server. This is commonly done by adding an "A" name entry to the DNS zone file for the website. This is not part of your OpenLiteSpeed configurations.
 
-```yaml
-# Set a path/url to a logo that will be displayed instead of the title
-logo: "/assets/images/just-the-docs.png"
+### Create a Virtual Host directories
+
+1. Make the virtual host's directories. I will name my virtual host "Example2" as an example. In the command line, I go to my LSWS directory and make the following directories:
+
+```bash
+mkdir /usr/local/lsws/Example2
+mkdir /usr/local/lsws/Example2/{conf,html,logs}
 ```
 
-## Search
+I then make conf owned by `lsadm:lsadm` (the WebAdmin console user) so that only the WebAdmin console will be able to manipulate configurations.
 
-```yaml
-# Enable or disable the site search
-# Supports true (default) or false
-search_enabled: true
-
-search:
-  # Split pages into sections that can be searched individually
-  # Supports 1 - 6, default: 2
-  heading_level: 2
-  # Maximum amount of previews per search result
-  # Default: 3
-  previews: 3
-  # Maximum amount of words to display before a matched word in the preview
-  # Default: 5
-  preview_words_before: 5
-  # Maximum amount of words to display after a matched word in the preview
-  # Default: 10
-  preview_words_after: 10
-  # Set the search token separator
-  # Default: /[\s\-/]+/
-  # Example: enable support for hyphenated search words
-  tokenizer_separator: /[\s/]+/
-  # Display the relative url in search results
-  # Supports true (default) or false
-  rel_url: true
-  # Enable or disable the search button that appears in the bottom right corner of every page
-  # Supports true or false (default)
-  button: false
+```bash
+chown lsadm:lsadm /usr/local/lsws/Example2/conf
 ```
 
-## Aux links
+2. Add an virtual hosts (in the WebAdmin console > Virtual Hosts > Add)
+3. Give the new virtual hosts an appropriate name, Root, Config file. 
 
-```yaml
-# Aux links for the upper right navigation
-aux_links:
-  "Just the Docs on GitHub":
-    - "//github.com/pmarsceill/just-the-docs"
+  - Virtual Host Name = Example2
+  - Virtual Host Root = $SERVER_ROOT/Example2
+  - Config File = $SERVER_ROOT/conf/vhosts/Example2/vhost.conf
+  - Enable Scripts/ExtApps = Yes 
+  - Restrained = No
 
-# Makes Aux links open in a new tab. Default is false
-aux_links_new_tab: false
-```
 
-## Heading anchor links
+::: Info ::::::
 
-```yaml
-# Heading anchor links appear on hover over h1-h6 tags in page content
-# allowing users to deep link to a particular heading on a page.
-#
-# Supports true (default) or false
-heading_anchors: true
-```
+Feel free to change the above settings, whether you want to enable scripts or where users can access content outside of this virtual host root from the site.
 
-## Footer content
 
-```yaml
-# Footer content
-# appears at the bottom of every page's main content
-# Note: The footer_content option is deprecated and will be removed in a future major release. Please use `_includes/footer_custom.html` for more robust
-markup / liquid-based content.
-footer_content: "Copyright &copy; 2017-2020 Patrick Marsceill. Distributed by an <a href=\"https://github.com/pmarsceill/just-the-docs/tree/master/LICENSE.txt\">MIT license.</a>"
+4. You might see "file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE" alert due to we starting from scratch, click the CLICK TO CREATE button so OpenLiteSpeed will make one for me. 
+5. Click save button, go back into the Example2 virtual host's configurations, and specify the document root under the General tab
+  - Document Root = /usr/local/lsws/Example2/html
+  - Index Files = index.html, index.php
+6. I'd also recommend you to enable the Rewrite feature which is under the Rewrite tab
+  - Enable Rewrite = Yes
+  - Auto Load from .htaccess = yes
 
-# Footer last edited timestamp
-last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
-last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
 
-# Footer "Edit this page on GitHub" link text
-gh_edit_link: true # show or hide edit this page link
-gh_edit_link_text: "Edit this page on GitHub."
-gh_edit_repository: "https://github.com/pmarsceill/just-the-docs" # the github URL for your repo
-gh_edit_branch: "master" # the branch that your docs is served from
-# gh_edit_source: docs # the source that your files originate from
-gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
-```
+### Create and Assign Listeners
 
-_note: `footer_content` is deprecated, but still supported. For a better experience we have moved this into an include called `_includes/footer_custom.html` which will allow for robust markup / liquid-based content._
+Go to the WebAdmin console \>  Listeners.
+You can have one listener to listen on all local IP addresses, or you can create multiple listeners with each listener only listening to a specific IP address. Many users will find it simpler to have one listener that is then mapped to different domains, but having multiple listeners can be useful if, for example, you wish to set aside certain server processors for certain sites (see the [listener binding section](http://www.litespeedtech.com/docs/webserver/config/listeners/#listenerBinding) of LSWS's documentation) or conduct special functions on separate ports.
+I don't need anything special, so I just go to the Default listener (that listens to all IPs on port 80):
+![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-listener-new-1024x272.png)
+And add a new mapping:
+![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-add-listener-mapping-new-1024x450.png)
+And input the domain for my virtual host: (In the Domains setting, "your.domain" will match to both "www.your.domain" and "your.domain". The leading "www." in a domain name is ignored.)
+![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-add-listener-mapping2-new-1024x361.png)
 
-- the "page last modified" data will only display if a page has a key called `last_modified_date`, formatted in some readable date format
-- `last_edit_time_format` uses Ruby's DateTime formatter; see examples and more information [at this link.](https://apidock.com/ruby/DateTime/strftime)
-- `gh_edit_repository` is the URL of the project's GitHub repository
-- `gh_edit_branch` is the branch that the docs site is served from; defaults to `master`
-- `gh_edit_source` is the source directory that your project files are stored in (should be the same as [site.source](https://jekyllrb.com/docs/configuration/options/))
-- `gh_edit_view_mode` is `"tree"` by default, which brings the user to the github page; switch to `"edit"` to bring the user directly into editing mode
+### <span id="Graceful_restart" class="mw-headline">Graceful Restart</span>
 
-## Color scheme
+![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-restart-new-1024x438.png)
+And we're done\! :)
+![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-works-new-1024x355.png)
+**Note:** OpenLiteSpeed supports Server Name Indication (SNI), allowing users to set SSL certificates at the virtual host level. This means that virtual hosts (websites) with different SSL certificates can operate on the the same IP address and port number. Different listeners (and IP-based hosting) are not necessary for secure sites to have unique certificates.
 
-```yaml
-# Color scheme supports "light" (default) and "dark"
-color_scheme: dark
-```
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
+## Listener Setup 
 
-<script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+## Cache Setup
+Cache Module is Installed and Enabled by default, so we don't need to change any settings for it. 
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
-    jtd.setTheme('light');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
-  } else {
-    jtd.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
-  }
-});
-</script>
+You still need to enable caching for your web apps, and this can be done by [installing the corresponding LSCache plugin](https://docs.litespeedtech.com/lscache/#available-plugins), or using [rewrite rules](https://docs.litespeedtech.com/lscache/noplugin/) in .htaccess if no plugin is available.
 
-See [Customization]({{ site.baseurl }}{% link docs/customization.md %}) for more information.
+## Security Setup
 
-## Google Analytics
+## reCAPTCHA with OpenLiteSpeed
 
-```yaml
-# Google Analytics Tracking (optional)
-# e.g, UA-1234567-89
-ga_tracking: UA-5555555-55
-ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true by default)
-```
+As of OpenLiteSpeed 1.5.1, reCAPTCHA is available as a method of defense against DDoS attack.
 
-## Document collections
+### How To Enable at the Server Level
 
-By default, the navigation and search include normal [pages](https://jekyllrb.com/docs/pages/).
-Instead, you can also use [Jekyll collections](https://jekyllrb.com/docs/collections/) which group documents semantically together.
+Access the WebAdmin console via `https://YOUR_SERVER_IP:7080`
+Navigate to **Configuration** \> **Server** \> **Security** \>** LS reCAPTCHA**
+<https://openlitespeed.org/wp-content/uploads/2019/05/ols-recaptha-sl.png>
 
-For example, put all your documentation files in the `_docs` folder and create the `docs` collection:
-```yaml
-# Define Jekyll collections
-collections:
-  # Define a collection named "docs", its documents reside in the "_docs" directory
-  docs:
-    permalink: "/:collection/:path/"
-    output: true
+  - **Enable reCAPTCHA**: The master switch. This should be set to `Yes`. If you wish to use reCAPTCHA at the virtual host level, then you must first enable it here, at the server level. reCAPTCHA will be activated when the number of concurrent requests reaches the configured **Connection Limit**.
+  - **Connection Limit**: The number of concurrent connections (SSL & non-SSL) needed to activate reCAPTCHA. reCAPTCHA will be used until concurrent connections drop below this number. Initially you should set this number low enough for easy testing. For example, `2`.  The default value is `15000`, which makes it almost impossible to activate the reCAPTCHA.
+  - **SSL Connection Limit**:  The number of concurrent SSL connections needed to activate reCAPTCHA. reCAPTCHA will be used until concurrent connections drop below this number.  Initially you should set this number low enough for easy testing. For example, `2`.  The default value is `10000`, which makes it almost impossible to activate the reCAPTCHA.
+  - **reCAPTCHA Type**: The reCAPTCHA type to use with the key pairs. If a key pair has not been provided and this setting is set to `Not Set`, a default key pair of type `Invisible` will be used. `Checkbox` will display a check box reCAPTCHA for the visitor to validate.  `Invisible` will attempt to validate the reCAPTCHA automatically, and if successful, will redirect to the desired page. `Invisible` is the default, but for easy testing, you can switch to `Checkbox`.
+  - **Site Key**: The public key provided by Google via its reCAPTCHA service. A default Site Key will be used if not set.
+  - **Secret Key**:  The private key provided by Google via its reCAPTCHA service. A default Secret Key will be used if not set.
+  - **Max Tries**: The maximum number of reCAPTCHA attempts permitted before denying the visitor. Default value is `3`.
+  - **Allowed Robot Hits**:  Number of hits per 10 seconds to allow "good bots" to pass. Bots will still be throttled when the server is under load. Default value is `3`.
+  - **Bot White List**:  List of custom user agents to allow access. Will be subject to the "good bots" limitations, including Allowed Robot Hits.
 
-just_the_docs:
-  # Define which collections are used in just-the-docs
-  collections:
-    # Reference the "docs" collection
-    docs:
-      # Give the collection a name
-      name: Documentation
-      # Exclude the collection from the navigation
-      # Supports true or false (default)
-      nav_exclude: false
-      # Exclude the collection from the search
-      # Supports true or false (default)
-      search_exclude: false
-```
+### How To Enable at the Virtual Host Level
 
-You can reference multiple collections.
-This creates categories in the navigation with the configured names.
-```yaml
-collections:
-  docs:
-    permalink: "/:collection/:path/"
-    output: true
-  tutorials:
-    permalink: "/:collection/:path/"
-    output: true
+**Tip**: Server-level reCAPTCHA must be enabled, as it is the master switch.
+Virtual-host-level connection limits will override server level limits.
+Virtual-host-level reCAPTCHA is enabled through the WebAdmin console. (It is not possible to enable reCAPTCHA through Rewrite Rules with OLS. That functionality is currently only available with [LiteSpeed Enterprise](https://www.litespeedtech.com/products/litespeed-web-server).)
+Navigate to **Configuration** \> **Virtual Hosts** \> **Security** and set **LS** **reCAPTCHA \> Enable reCAPTCHA** to `Yes`.
+<https://openlitespeed.org/wp-content/uploads/2019/05/ols-recaptha-vh.png>
 
-just_the_docs:
-  collections:
-    docs:
-      name: Documentation
-    tutorials:
-      name: Tutorials
-```
+  - **Concurrent Request Limit**:  The number of concurrent requests needed to activate reCAPTCHA. reCAPTCHA will be used until concurrent requests drop below this number. Initially you should set this number low enough for easy testing. For example, `2`.  The default value is `15000`, which makes it almost impossible to activate the reCAPTCHA.
+  - **reCAPTCHA Type**: The reCAPTCHA type to use with the key pairs. If a key pair has not been provided and this setting is set to `Not Set`, a default key pair of type `Invisible` will be used. `Checkbox` will display a check box reCAPTCHA for the visitor to validate.  `Invisible` will attempt to validate the reCAPTCHA automatically, and if successful, will redirect to the desired page. `Invisible` is the default, but for easy testing, you can switch to `Checkbox`.
+  - **Max Tries**: The maximum number of reCAPTCHA attempts permitted before denying the visitor. Default value is `3`.
 
+### Customizing the Good Bots List
+
+Google bots are considered good bots because they help index your site. However, they cannot do their job properly without receiving the correct page. The **Bot White List** configuration may be used to specify bots that you may need for your site.
+![](https://openlitespeed.org/wp-content/uploads/2019/05/ols-recap3.jpg)
+Here, we have configured `Edge` in the **Bot White List** text area. Bot White List is a contains match, but regex may be used as well.
+After restarting, browsers containing `Edge` in the user-agent header will bypass reCAPTCHA:
+![](https://openlitespeed.org/wp-content/uploads/2019/05/ols-recap4.png)
+The browser on the left is Microsoft Edge, the browser on the right is Chrome.}}
+The **Allowed Robot Hits** configuration may be used to limit how many times a good bot (including Googlebot) is allowed to hit a URL before it is redirected to reCAPTCHA as well. This may be useful to prevent bad actors from bypassing reCAPTCHA using a custom user agent.
+
+### Customizing the reCAPTCHA Page
+
+The default reCAPTCHA page is generic. If you would like to customize the page, you may do so by creating a file at `$SERVER_ROOT/lsrecaptcha/_recaptcha_custom.shtml`
+There are two script tags that are required and it is strongly recommended to avoid changing the `form` and the `recaptchadiv` unless you know what you are doing. There are three echos within the page itself. Those are used by the web server to customize the reCAPTCHA type and keys and specify any query string used.
+Beyond those required attributes, everything else is customizable. As noted before, please ensure that you have backups of the default page and your customized page. Note that the `.shtml` extension is required in order to use configured type and keys.
+
+### Apply Your Own Site Key
+
+You can apply your own reCAPTCHA key and adjust the configuration as you like. Client verification is completely determined by Google's reCAPTCHA service. The invisible type may display a difficult puzzle.
+For server wide protection that needs to cover a lot of domains, make sure **Verify the origin of reCAPTCHA** solutions is unchecked. Otherwise, you may need to apply a key for each domain.
+
+### reCAPTCHA Returning 403 and Dropping Connection
+
+If reCAPTCHA fails a few times, it will return a 403 error and then drop the connection from that IP. It is the way it works in order to block attacks. If the `invisible` reCAPTCHA keeps auto-refreshing and then fails, just change the type to `one-click`
+
+
+## Per-Client Throttling
+
+OpenLiteSpeed includes a built-in Per-Client Throttling feature which allows you to block bad IPs.
+Navigate to **Configuration \> Server \> Security configurations \> Per Client Throttling** to find several configuration settings that you can use to limit the request, bandwidth, and connection rate per remote IP address.
+
+### Request Throttling
+
+Separate controls are available for throttling requests for static files and dynamic content.
+
+### Bandwidth Throttling
+
+The server allows setting separate bandwidth limits for inbound and outbound traffic.
+Bandwidth numbers will be rounded up in 4KB increments.
+Set to `0` to disable throttling.
+The **Outbound Bandwidth** limit allows serving more unique clients and prevents limited network bandwidth from getting used up by a small number of clients with fast network connections.
+
+### Connection Throttling
+
+These settings control concurrent connections coming from one client (IP address) and guard against DoS attacks.
+
+**Connection Hard Limit** controls how many concurrent connections are allowed from one IP address. If an IP reaches the hard connection limit, the web server will immediately close newly accepted connections from that IP address, and move on to pending connections from different IP addresses. As almost all web browsers support keep-alive/persistent connections (multiple requests pipelined through one connection), the number of connections required in normal browsing is very small. Typically, one connection is enough, but some web browsers try to establish additional connections to speed up downloading. Allowing 4 to 10 connections from one IP is recommended. Less than that will probably affect normal web services.
+
+Use **Connection Soft Limit**, **Grace Period**, and Banned Period to spot and mitigate abusers: An IP address that stays over the soft limit for the length of the grace period will be banned for the length of time set in **Banned Period**. This is a good way to identify IPs that should be added to the **Denied List**.
+
+**Note**: The number of connections can temporarily exceed the soft limit during the grace period, as long as it is under the hard limit. After the grace period, if it is still above the soft limit, then no more connections will be allowed from that IP for duration of the banned period.
+
+### Example
+
+Default Settings:
+![](https://openlitespeed.org/wp-content/uploads/2019/12/ols-throttle1.jpg)
+Updated Settings:
+![](https://openlitespeed.org/wp-content/uploads/2019/12/ols-throttle2.jpg)
+**Static Requests/second** = `40`
+**Dynamic Requests/second** = `2`
+**Outbound Bandwidth (bytes/sec)** = `0`
+**Inbound Bandwidth (bytes/sec)** = `0`
+**Connection Soft Limit** = `15`
+**Connection Hard Limit** = `20`
+**Block Bad Request** = `Yes`
+**Grace Period (sec)** = `15`
+**Banned Period (sec)** = `60`
+Explanation: An IP that has established more than 20 connections with the web server, or has established over 15 connections of over 15 seconds (the grace period), is treated as a DoS-attacker. The server will ban the IP for 60 seconds and record a log entry in the error log file. To exclude any IP from the client throttle limits (and bypass DDoS detection), add the IP with a trailing `T` (aka trusted) in **Allowed List** (**WebAdmin Console \> Server \> Security \> Access Control**).
+The hard limit can be adjusted based on an attacker's strategy. If the botnet is not very aggressive, you will need to lower the limit to just below their max connection per IP, to make sure it won't affect a regular user. If they only make very few connections per IP, do not use the hard limit to detect them.
+
+
+
+## Proxy Setup 
