@@ -3,7 +3,7 @@ layout: default
 title: Install from Repository
 parent: Installation
 nav_order: 1
-permalink: /installation
+permalink: /docs/installation/repo
 ---
 
 # Install from LiteSpeed Repository
