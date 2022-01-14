@@ -10,12 +10,11 @@ permalink: /docs/installation/script
 
 Our One-Click script comes with several options. Here are two commmon usages.
 
-Install OpenLiteSpeed, LSPHP, MariaDB, WordPress, and LiteSpeed Cache plugin:
+- Install OpenLiteSpeed, LSPHP, MariaDB, WordPress, and LiteSpeed Cache plugin:
 ```bash
 bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh ) -w
 ```
-
-Install OpenLiteSpeed and LSPHP only: 
+- Install OpenLiteSpeed and LSPHP only: 
 ```bash
 bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh )
 ```
