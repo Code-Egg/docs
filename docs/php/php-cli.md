@@ -1,7 +1,7 @@
 ---
 layout: default
 title: PHP Setup With CLI
-nav-order: 2
+nav_order: 2
 parent: PHP
 permalink: /docs/php/cli
 ---
