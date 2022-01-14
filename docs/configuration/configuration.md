@@ -20,41 +20,55 @@ permalink: /docs/configuration
 
 ## Virtual Host Setup
 
-# Setting up Name-based Virtual Hosting on OpenLiteSpeed
+With name-based virtual hosting, you can host more than one website (virtual host) on each IP address.
 
-## Name-Based Virtual Hosting on OpenLiteSpeed
-
-Name-based virtual hosting assigns virtual hosts based on domain names, not IP addresses. With name-based virtual hosting, you can host more than one website (virtual host) on each IP address.
-Use the following guidelines to set up name-based virtual hosting:
-
-## <span id="Set_up_DNS_properly" class="mw-headline">Setup DNS Properly</span>
+### Setup DNS Properly
 
 Forward the domain names of your web sites to the IP address used by your web server. This is commonly done by adding an "A" name entry to the DNS zone file for the website. This is not part of your OpenLiteSpeed configurations.
 
-## Setup the Virtual Hosts in the Webadmin Console
+### Create a Virtual Host directories
 
-### Create a Virtual Host for Each Website
+1. Make the virtual host's directories. I will name my virtual host "Example2" as an example. In the command line, I go to my LSWS directory and make the following directories:
 
-First, make the virtual host's directories. I will name my virtual host "Example2" (because I've used Example and Example3 for other guides). In the command line, I go to my LSWS directory and make the following directories:
+```bash
+mkdir /usr/local/lsws/Example2
+mkdir /usr/local/lsws/Example2/{conf,html,logs}
+```
 
-    cd /usr/local/lsws
+I then make conf owned by `lsadm:lsadm` (the WebAdmin console user) so that only the WebAdmin console will be able to manipulate configurations.
 
-    mkdir Example2
+```bash
+chown lsadm:lsadm /usr/local/lsws/Example2/conf
+```
 
-    mkdir Example2/{conf,html,logs}
+2. Add an virtual hosts (in the WebAdmin console > Virtual Hosts > Add)
+3. Give the new virtual hosts an appropriate name, Root, Config file. 
 
-I then make conf owned by lsadm:lsadm (the WebAdmin console user) so that only the WebAdmin console will be able to manipulate configurations. (You should not allow other users permission to manipulate your configuration.):
+  - Virtual Host Name = Example2
+  - Virtual Host Root = $SERVER_ROOT/Example2
+  - Config File = $SERVER_ROOT/conf/vhosts/Example2/vhost.conf
+  - Enable Scripts/ExtApps = Yes 
+  - Restrained = No
 
-    chown lsadm:lsadm Example2/conf
+::: Info ::::::
+Feel free to change the above settings, whether you want to enable scripts or where users can access content outside of this virtual host root from the site.
 
-Then I go to the WebAdmin console \> Virtual Hosts \> Add to add the virtual hosts to OpenLiteSpeed:
-![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-add-new-1024x371.png)
-You have to enter the virtual host's name, the virtual host root file, and the virtual host configuration file. You also need to choose whether to enable scripts on this site and whether users can access content outside of this virtual host root from the site (Restrained).
-![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-settings-new-1024x464.png)
-I don't have a virtual host configuration file yet, because I'm starting from scratch, so I tell OpenLiteSpeed to make one for me:
-![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-settings2-new-1024x457.png)
-Then I save, go back into the virtual host's configurations, and specify my document root:
-![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-docroot-new-1024x388.png)
+{% include note.html content="This is my note. All the content I type here
+is treated as a single paragraph. <br/><br/> Now I'm typing on a  new line." %}
+
+{% include callout.html content="This is my callout. It has a border on the left 
+whose color you define by passing a type parameter. I typically use this style of
+callout when I have more information that I want to share, often spanning
+multiple paragraphs. " type="primary" %}
+
+4. You might see "file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE" alert due to we starting from scratch, click the CLICK TO CREATE button so OpenLiteSpeed will make one for me. 
+5. Click save button, go back into the Example2 virtual host's configurations, and specify the document root under the General tab
+  - Document Root = /usr/local/lsws/Example2/html
+  - Index Files = index.html, index.php
+6. I'd also recommend you to enable the Rewrite feature which is under the Rewrite tab
+  - Enable Rewrite = Yes
+  - Auto Load from .htaccess = yes
+
 
 ### Create and Assign Listeners
 

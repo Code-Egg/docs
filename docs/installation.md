@@ -56,10 +56,11 @@ sudo yum install openlitespeed
 ```
 
 ### Next
-You might want to install LSPHP and config the server settings. 
-[View typography utilities]({{ site.baseurl }}{% link docs/php.md %}#typography){: .btn .btn-outline }
-- [LSPHP](/docs/php)
-- [Configuration](/docs/configuration)
+{: .no_toc}
+
+You might want to install LSPHP and configur the server settings. 
+1. [LSPHP](/docs/php)
+2. [Configuration](/docs/configuration)
 
 ## Install from One-Click Script
 
