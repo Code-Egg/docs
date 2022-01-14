@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Configuration
+parent: Configuration
 nav_order: 3
 ---
 
@@ -48,10 +49,10 @@ chown lsadm:lsadm /usr/local/lsws/Example2/conf
   - Enable Scripts/ExtApps = Yes 
   - Restrained = No
 
-```
+
 ::: Info ::::::
 Feel free to change the above settings, whether you want to enable scripts or where users can access content outside of this virtual host root from the site.
-```
+
 
 4. You might see "file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE" alert due to we starting from scratch, click the CLICK TO CREATE button so OpenLiteSpeed will make one for me. 
 5. Click save button, go back into the Example2 virtual host's configurations, and specify the document root under the General tab
