@@ -5,16 +5,6 @@ nav_order: 2
 has_children: true
 permalink: /installation
 ---
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-
-</details>
----
 
 ### Supported OS 
 {: .no_toc}
@@ -56,9 +46,11 @@ sudo apt-get install openlitespeed
 sudo yum install openlitespeed
 ```
 
-### Next
+### Next step
 {: .no_toc} 
 
 You might want to install LSPHP and configur the server settings. 
 1. [LSPHP](/docs/php)
 2. [Configuration](/docs/configuration)
+
+## Other fast setup method
