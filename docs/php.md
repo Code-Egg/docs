@@ -26,7 +26,7 @@ permalink: /docs/php
 - [AlamaLinux 8](https://mirrors.almalinux.org/isos.html)
 
 
-## Install from LiteSpeed Repository
+## Install LSPHP
 
 ### Install LiteSpeed Repository
 {: .no_toc}
@@ -56,9 +56,9 @@ sudo yum install epel-release
 For Debian/Ubuntum,
 ```bash
 sudo apt-get install lsphp80 lsphp80-common lsphp80-mysql
-```bash
-For CentOS,
 ```
+For CentOS,
+```bash
 sudo yum install lsphp80 lsphp80-common lsphp80-mysqlnd
 ```
 
