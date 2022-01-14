@@ -29,16 +29,16 @@ permalink: /installation
 {: .no_toc}
 
 - Debian/Ubuntum
-```
+```bash
 sudo wget -O - http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | sudo bash
 ```
 - AlmaLinux 8 & CentOS 8:
-```
+```bash
 sudo rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el8.noarch.rpm
 sudo yum install epel-release
 ```
 - CentOS 7:
-```
+```bash
 sudo rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
 sudo yum install epel-release
 ```
@@ -47,11 +47,11 @@ sudo yum install epel-release
 {: .no_toc}
 
 For Debian/Ubuntum,
-```
+```bash
 sudo apt-get install openlitespeed
 ```
 For CentOS,
-```
+```bash
 sudo yum install openlitespeed
 ```
 
@@ -64,11 +64,11 @@ internal url
 ## Install from One-Click Script
 
 To install OpenLiteSpeed, LSPHP, MariaDB, WordPress, and LiteSpeed Cache plugin,
-```
+```bash
 bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh ) -w
 ```
 To install OpenLiteSpeed and lsphp, 
-```
+```bash
 bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh )
 ```
 More examples

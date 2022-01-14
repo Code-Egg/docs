@@ -2,6 +2,7 @@
 layout: default
 title: PHP
 nav_order: 4
+has_children: true
 permalink: /docs/php
 ---
 
@@ -24,33 +25,38 @@ permalink: /docs/php
 - [CentOS 6, 7, 8](https://www.centos.org/download/)
 - [AlamaLinux 8](https://mirrors.almalinux.org/isos.html)
 
-## Install LiteSpeed Repository
+
+## Install from LiteSpeed Repository
+
+### Install LiteSpeed Repository
+{: .no_toc}
 
 The easiest way to get up and running with PHP is to use the LiteSpeed Repository. The LiteSpeed Repository comes with prebuilt PHP packages with LiteSpeed support built in.
 
 Before you can install LSPHP there are a couple of prerequisite packages and repositories that need to be installed via the operating system's package manager. This can be accomplished by running the following commands in a terminal:
 
 - Debian/Ubuntum
-```
+```bash
 sudo wget -O - http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | sudo bash
 ```
 - AlmaLinux 8 & CentOS 8:
-```
+```bash
 sudo rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el8.noarch.rpm
 sudo yum install epel-release
 ```
 - CentOS 7:
-```
+```bash
 sudo rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
 sudo yum install epel-release
 ```
 
-## Install LSPHP
+### Install LSPHP
+{: .no_toc}
 
 For Debian/Ubuntum,
-```
+```bash
 sudo apt-get install lsphp80 lsphp80-common lsphp80-mysql
-```
+```bash
 For CentOS,
 ```
 sudo yum install lsphp80 lsphp80-common lsphp80-mysqlnd
@@ -60,11 +66,11 @@ This will install `lsphp80` and `lsphp80-mysql` into the following location: `/u
 
 To find out all the LSPHP packages and extensions we offer you can run the following:
 For Debian/Ubuntum,
-```
+```bash
 sudo apt-cache search lsphp
 ```
 For CentOS,
-```
+```bash
 sudo yum search lsphp
 ```
 
@@ -90,45 +96,12 @@ We will go through creating an external application for PHP 8.0. However, you ca
   - Process Soft Limit = `1400`
   - Process Hard Limit = `1500`
 
-If you want to add External Applications from console:
-Edit httpd_config.conf, 
-```
-extProcessor lsphp80{
-    type                            lsapi
-    address                         uds://tmp/lshttpd/lsphp.sock
-    maxConns                        35
-    env                             PHP_LSAPI_CHILDREN=35
-    env                             LSAPI_AVOID_FORK=200M
-    initTimeout                     60
-    retryTimeout                    0
-    persistConn                     1
-    pcKeepAliveTimeout
-    respBuffer                      0
-    autoStart                       1
-    path                            lsphp80/bin/lsphp
-    backlog                         100
-    instances                       1
-    priority                        0
-    memSoftLimit                    2047M
-    memHardLimit                    2047M
-    procSoftLimit                   1400
-    procHardLimit                   1500
-}
-```
 ### Set up Script Handlers 
 1. Add an Script Handlers  (in the WebAdmin console > Server Configuration > Script handler > Add).
 2. Give the new Script handler an appropriate Suffixes, type and Name,
   - Suffixes = `php`
   - Handler Type = `LiteSpeed SAPI`
   - Handler Name = lsphp80
-
-If you want to add Script Handlers  from console:
-Edit httpd_config.conf, 
-```
-scriptHandler{
-    add lsapi:lsphp80  php
-}
-```
 
 ## Setup PHP at virtual host level 
 We can setup the same External Applications and Script Handlers at virtual host level, this will override any server-level script handler settings. 
