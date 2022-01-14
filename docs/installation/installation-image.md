@@ -2,6 +2,7 @@
 layout: default
 title: Launch from Image
 parent: Installation
+nav_order: 2
 permalink: /docs/installation/image
 ---
 

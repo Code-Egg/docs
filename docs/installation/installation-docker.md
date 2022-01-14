@@ -2,6 +2,7 @@
 layout: default
 title: Launch from Docker
 parent: Installation
+nav_order: 4
 permalink: /docs/installation/docker
 ---
 
