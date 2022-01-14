@@ -34,11 +34,13 @@ sudo wget -O - http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | 
 ```
 - AlmaLinux 8 & CentOS 8:
 ```
-rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el8.noarch.rpm
+sudo rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el8.noarch.rpm
+sudo yum install epel-release
 ```
 - CentOS 7:
 ```
-rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
+sudo rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
+sudo yum install epel-release
 ```
 
 ### Install OpenLiteSpeed
@@ -46,12 +48,11 @@ rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.r
 
 For Debian/Ubuntum,
 ```
-apt-get install openlitespeed
+sudo apt-get install openlitespeed
 ```
 For CentOS,
 ```
-yum install epel-release
-yum install openlitespeed
+sudo yum install openlitespeed
 ```
 
 ### Install PHP
