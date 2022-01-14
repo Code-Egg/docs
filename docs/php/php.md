@@ -6,7 +6,6 @@ has_children: true
 permalink: /php
 ---
 
----
 <details open markdown="block">
   <summary>
     Table of contents
@@ -16,7 +15,7 @@ permalink: /php
 {:toc}
 
 </details>
----
+
 
 ## Install LSPHP
 
