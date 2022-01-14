@@ -6,17 +6,17 @@ has_children: true
 permalink: /installation
 ---
 
----
+
 <details open markdown="block">
   <summary>
-    Other fast setup method
+    Table of contents
   </summary>
   {: .text-delta }
 1. TOC
 {:toc}
 
 </details>
----
+
 
 ### Supported OS 
 {: .no_toc}
