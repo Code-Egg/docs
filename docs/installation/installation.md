@@ -6,6 +6,18 @@ has_children: true
 permalink: /installation
 ---
 
+---
+<details open markdown="block">
+  <summary>
+    Other fast setup method
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+
+</details>
+---
+
 ### Supported OS 
 {: .no_toc}
 - [Debian 7, 8, 9, 10](https://www.debian.org/distrib/)
@@ -55,14 +67,3 @@ You might want to install LSPHP and configure the server settings.
 
 ## Other fast setup method
 
----
-<details open markdown="block">
-  <summary>
-    Other fast setup method
-  </summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-
-</details>
----

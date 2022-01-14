@@ -51,6 +51,7 @@ chown lsadm:lsadm /usr/local/lsws/Example2/conf
 
 
 ::: Info ::::::
+
 Feel free to change the above settings, whether you want to enable scripts or where users can access content outside of this virtual host root from the site.
 
 
