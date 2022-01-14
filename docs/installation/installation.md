@@ -54,3 +54,15 @@ You might want to install LSPHP and configure the server settings.
 2. [Configuration](/docs/configuration)
 
 ## Other fast setup method
+
+---
+<details open markdown="block">
+  <summary>
+    Other fast setup method
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+
+</details>
+---
