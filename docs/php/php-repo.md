@@ -1,7 +1,7 @@
 ---
 layout: default
 title: PHP Setup With Repo
-nav-order: 1
+nav_order: 1
 parent: PHP
 permalink: /docs/php/repo
 ---
@@ -26,7 +26,7 @@ The easiest way to get up and running with PHP is to use the LiteSpeed Repositor
 ### Install LiteSpeed Repository, if Necessary
 {: .no_toc}
 
-**NOTE**: Of you already installed the LiteSpeed Repository when you Installed OpenLiteSpeed, you can skip this step.
+**NOTE**: If you already installed the LiteSpeed Repository when you Installed OpenLiteSpeed, you can skip this step.
 
 - Debian/Ubuntum
 ```bash
