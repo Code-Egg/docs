@@ -56,7 +56,7 @@ sudo yum install openlitespeed
 ```
 
 ### Next
-{: .no_toc}
+{: .no_toc} 
 
 You might want to install LSPHP and configur the server settings. 
 1. [LSPHP](/docs/php)
