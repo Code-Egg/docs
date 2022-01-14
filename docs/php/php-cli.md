@@ -1,9 +1,13 @@
 ---
 layout: default
-title: PHP setup with CLI
+title: PHP Setup With CLI
+nav-order: 2
 parent: PHP
 permalink: /docs/php/cli
 ---
+
+# Set Up LSPHP at the Server Level From the Command Line
+{: .no_toc}
 
 ---
 <details open markdown="block">
@@ -17,10 +21,9 @@ permalink: /docs/php/cli
 </details>
 ---
 
-## Setup PHP at server level
-### Define External Applications for PHPs
+## Define External Applications for PHPs
 
-Edit httpd_config.conf
+Edit the `httpd_config.conf` file as follows:
 
 ```bash
 extProcessor lsphp80{
@@ -48,7 +51,8 @@ extProcessor lsphp80{
 
 ### Set up Script Handlers 
 
-Edit httpd_config.conf
+Add the following to the `httpd_config.conf` file:
+
 ```bash
 scriptHandler{
     add lsapi:lsphp80  php
