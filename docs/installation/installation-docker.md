@@ -6,7 +6,7 @@ nav_order: 4
 permalink: /docs/installation/docker
 ---
 
-## Launch from Docker
+# Launch from Docker
 
 Launch an Existing Image from [Docker Hub](https://hub.docker.com/search?q=litespeedtech&type=image)
 

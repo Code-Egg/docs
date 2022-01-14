@@ -6,7 +6,9 @@ nav_order: 2
 permalink: /docs/installation/image
 ---
 
-## Launch from Existing Image
+# Launch from an Existing Image
+
+Launch an OpenLiteSpeed instance from one of our Cloud Image providers.
 
 |   |[<img src="/docs/assets/images/Cloud/wp_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/wordpress/)|[<img src="/docs/assets/images/Cloud/cyberpanel_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/cyberpanel/) |[<img src="/docs/assets/images/Cloud/django_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/django/) | [<img src="/docs/assets/images/Cloud/nodejs_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/nodejs/)|[<img src="/docs/assets/images/Cloud/ruby_50.svg" width = "100">](https://docs.litespeedtech.com/cloud/rails/)|
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |

@@ -6,21 +6,26 @@ nav_order: 3
 permalink: /docs/installation/script
 ---
 
-## Install from One-Click Script
+# Install from One-Click Script
 
-To install OpenLiteSpeed, LSPHP, MariaDB, WordPress, and LiteSpeed Cache plugin,
+Our One-Click script comes with several options. Here are two commmon usages.
+
+Install OpenLiteSpeed, LSPHP, MariaDB, WordPress, and LiteSpeed Cache plugin:
 ```bash
 bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh ) -w
 ```
-To install OpenLiteSpeed and lsphp, 
+
+Install OpenLiteSpeed and LSPHP only: 
 ```bash
 bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh )
 ```
 
+See below for additional options and usage examples.
 
 ## Options
 
-    ./ols1clk.sh [options] [options] …
+Usage: `./ols1clk.sh [option] [option] …`
+
 
 | Opt  | Options                        | Description                                                                                 |
 | :--: | ------------------------------ | ------------------------------------------------------------------------------------------- |
@@ -49,7 +54,7 @@ bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/
 |      | `--update`                     | To update ols1clk from github.                                                              |
 | `-H` | `--help`                       | To display help messages.                                                                   |
 
-## More examples
+## Examples
 
 | Examples                             | Description                                                                         |
 | ------------------------------------ | ----------------------------------------------------------------------------------- |
