@@ -22,7 +22,7 @@ permalink: /docs/php/cli
 
 Edit httpd_config.conf
 
-```
+```bash
 extProcessor lsphp80{
     type                            lsapi
     address                         uds://tmp/lshttpd/lsphp.sock
@@ -49,7 +49,7 @@ extProcessor lsphp80{
 ### Set up Script Handlers 
 
 Edit httpd_config.conf
-```
+```bash
 scriptHandler{
     add lsapi:lsphp80  php
 }
