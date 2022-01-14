@@ -46,7 +46,7 @@ sudo yum install epel-release
 ### Install LSPHP
 {: .no_toc}
 
-This command will install `lsphp80` and `lsphp80-mysql` into the following location: `/usr/local/lsws/lsphp80/bin/lsphp`.
+This command will install `lsphp80` and `lsphp80-mysql` into `/usr/local/lsws/lsphp80/bin/lsphp`:
 
 - Debian/Ubuntu
 ```bash
@@ -57,7 +57,7 @@ sudo apt-get install lsphp80 lsphp80-common lsphp80-mysql
 sudo yum install lsphp80 lsphp80-common lsphp80-mysqlnd
 ```
 
-To get a list of the LSPHP packages and extensions we offer, you can run the following:
+To get a list of the LSPHP packages and extensions available, you can run the following:
 
 - Debian/Ubuntu
 ```bash
@@ -102,7 +102,7 @@ LSAPI_AVOID_FORK=200M```
 2. Give the new script handler appropriate settings, using the following example as a guide:
   - **Suffixes**: `php`
   - **Handler Type**: `LiteSpeed SAPI`
-  - **Handler Name**: lsphp80
+  - **Handler Name**: `lsphp80`
 
 ## Set up PHP at the Virtual Host Level 
 If you want to use different settings for any of your virtual hosts, you can set up the same external applications and script handlers at the virtual host level, which will override any server-level script handler settings. 
@@ -110,4 +110,4 @@ If you want to use different settings for any of your virtual hosts, you can set
 2. Give the new script handler appropriate settings, using the following example as a guide:
   - **Suffixes**: `php`
   - **Handler Type**: `LiteSpeed SAPI`
-  - **Handler Name**: lsphp80
+  - **Handler Name**: `lsphp80`
