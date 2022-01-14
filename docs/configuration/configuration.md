@@ -53,14 +53,6 @@ chown lsadm:lsadm /usr/local/lsws/Example2/conf
 ::: Info ::::::
 Feel free to change the above settings, whether you want to enable scripts or where users can access content outside of this virtual host root from the site.
 
-{% include note.html content="This is my note. All the content I type here
-is treated as a single paragraph. <br/><br/> Now I'm typing on a  new line." %}
-
-{% include callout.html content="This is my callout. It has a border on the left 
-whose color you define by passing a type parameter. I typically use this style of
-callout when I have more information that I want to share, often spanning
-multiple paragraphs. " type="primary" %}
-
 4. You might see "file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE" alert due to we starting from scratch, click the CLICK TO CREATE button so OpenLiteSpeed will make one for me. 
 5. Click save button, go back into the Example2 virtual host's configurations, and specify the document root under the General tab
   - Document Root = /usr/local/lsws/Example2/html
