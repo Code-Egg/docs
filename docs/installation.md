@@ -28,16 +28,16 @@ permalink: /installation
 ### Install LiteSpeed Repository
 {: .no_toc}
 
-- Debian/Ubuntum
+- Debian/Ubuntu
 ```bash
 sudo wget -O - http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | sudo bash
 ```
-- AlmaLinux 8 & CentOS 8:
+- AlmaLinux 8 & CentOS 8
 ```bash
 sudo rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el8.noarch.rpm
 sudo yum install epel-release
 ```
-- CentOS 7:
+- CentOS 7
 ```bash
 sudo rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
 sudo yum install epel-release
@@ -46,20 +46,19 @@ sudo yum install epel-release
 ### Install OpenLiteSpeed
 {: .no_toc}
 
-For Debian/Ubuntum,
+- Debian/Ubuntu
 ```bash
 sudo apt-get install openlitespeed
 ```
-For CentOS,
+- CentOS
 ```bash
 sudo yum install openlitespeed
 ```
 
-### Install PHP
-{: .no_toc}
-
-internal url
-
+### Next
+You might want to install LSPHP and config the server settings. 
+- [LSPHP](/php)
+- [Configuration](/configuration)
 
 ## Install from One-Click Script
 

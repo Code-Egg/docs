@@ -5,10 +5,23 @@ parent: PHP
 permalink: /docs/php/cli
 ---
 
+---
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+
+</details>
+---
+
 ## Setup PHP at server level
 ### Define External Applications for PHPs
 
-Edit httpd_config.conf, 
+Edit httpd_config.conf
+
 ```
 extProcessor lsphp80{
     type                            lsapi
@@ -35,7 +48,7 @@ extProcessor lsphp80{
 
 ### Set up Script Handlers 
 
-Edit httpd_config.conf, 
+Edit httpd_config.conf
 ```
 scriptHandler{
     add lsapi:lsphp80  php

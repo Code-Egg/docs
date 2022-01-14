@@ -18,22 +18,12 @@ permalink: /docs/php
 </details>
 ---
 
-### Supported OS 
-{: .no_toc}
-- [Debian 7, 8, 9, 10](https://www.debian.org/distrib/)
-- [Ubuntu 16, 18, 20](https://www.ubuntu.com/download)
-- [CentOS 6, 7, 8](https://www.centos.org/download/)
-- [AlamaLinux 8](https://mirrors.almalinux.org/isos.html)
-
-
 ## Install LSPHP
 
 ### Install LiteSpeed Repository
 {: .no_toc}
 
 The easiest way to get up and running with PHP is to use the LiteSpeed Repository. The LiteSpeed Repository comes with prebuilt PHP packages with LiteSpeed support built in.
-
-Before you can install LSPHP there are a couple of prerequisite packages and repositories that need to be installed via the operating system's package manager. This can be accomplished by running the following commands in a terminal:
 
 - Debian/Ubuntum
 ```bash
@@ -53,11 +43,11 @@ sudo yum install epel-release
 ### Install LSPHP
 {: .no_toc}
 
-For Debian/Ubuntum,
+- Debian/Ubuntu
 ```bash
 sudo apt-get install lsphp80 lsphp80-common lsphp80-mysql
 ```
-For CentOS,
+- CentOS
 ```bash
 sudo yum install lsphp80 lsphp80-common lsphp80-mysqlnd
 ```
@@ -65,11 +55,12 @@ sudo yum install lsphp80 lsphp80-common lsphp80-mysqlnd
 This will install `lsphp80` and `lsphp80-mysql` into the following location: `/usr/local/lsws/lsphp80/bin/lsphp`.
 
 To find out all the LSPHP packages and extensions we offer you can run the following:
-For Debian/Ubuntum,
+
+- Debian/Ubuntu
 ```bash
 sudo apt-cache search lsphp
 ```
-For CentOS,
+- CentOS
 ```bash
 sudo yum search lsphp
 ```
