@@ -1,6 +1,6 @@
 ---
 layout: default
 title: Proxy
-parent: Configuration
+parent: Advance
 nav_order: 4
 ---

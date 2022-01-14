@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Configuration
-parent: Configuration
+permalink: /docs/configuration
 nav_order: 3
 ---
 
