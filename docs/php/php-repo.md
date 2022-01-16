@@ -28,16 +28,16 @@ The easiest way to get up and running with PHP is to use the LiteSpeed Repositor
 
 **NOTE**: If you already installed the LiteSpeed Repository when you Installed OpenLiteSpeed, you can skip this step.
 
-- Debian/Ubuntum
+- Debian/Ubuntu
 ```bash
 sudo wget -O - http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | sudo bash
 ```
-- AlmaLinux 8 & CentOS 8:
+- AlmaLinux 8 & CentOS 8
 ```bash
 sudo rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el8.noarch.rpm
 sudo yum install epel-release
 ```
-- CentOS 7:
+- CentOS 7
 ```bash
 sudo rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
 sudo yum install epel-release

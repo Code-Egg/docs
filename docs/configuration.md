@@ -28,33 +28,21 @@ Forward the domain names of your web sites to the IP address used by your web se
 ### Create a Virtual Host directories
 
 1. Make the virtual host's directories. I will name my virtual host "Example2" as an example. In the command line, I go to my LSWS directory and make the following directories:
-
 ```bash
 mkdir /usr/local/lsws/Example2
 mkdir /usr/local/lsws/Example2/{conf,html,logs}
 ```
-
 I then make conf owned by `lsadm:lsadm` (the WebAdmin console user) so that only the WebAdmin console will be able to manipulate configurations.
-
 ```bash
 chown lsadm:lsadm /usr/local/lsws/Example2/conf
 ```
-
 2. Add an virtual hosts (in the WebAdmin console > Virtual Hosts > Add)
 3. Give the new virtual hosts an appropriate name, Root, Config file. 
-
   - Virtual Host Name = Example2
   - Virtual Host Root = $SERVER_ROOT/Example2
   - Config File = $SERVER_ROOT/conf/vhosts/Example2/vhost.conf
   - Enable Scripts/ExtApps = Yes 
   - Restrained = No
-
-
-::: Info ::::::
-
-Feel free to change the above settings, whether you want to enable scripts or where users can access content outside of this virtual host root from the site.
-
-
 4. You might see "file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE" alert due to we starting from scratch, click the CLICK TO CREATE button so OpenLiteSpeed will make one for me. 
 5. Click save button, go back into the Example2 virtual host's configurations, and specify the document root under the General tab
   - Document Root = /usr/local/lsws/Example2/html
@@ -64,25 +52,41 @@ Feel free to change the above settings, whether you want to enable scripts or wh
   - Auto Load from .htaccess = yes
 
 
-### Create and Assign Listeners
+## Listeners setup
+### Listener create 
+Go to the WebAdmin console > Listeners. The default listener that listens to all IPs on port 8088. You might want to create another two listeners for both HTTP and HTTPS ports.  
+1. Click the Add button to create a HTTP listener with following settings:
+  - Listener Name = HTTP
+  - IP Address = ANY IPv4
+  - Port = 80
+  - Secure = No
+2. Click the Add button to create a HTTPS listener with following settings:
+  - Listener Name = HTTPS
+  - IP Address = ANY IPv4
+  - Port = 443
+  - Secure = Yes
+3. Navigate  to the WebAdmin Console > Listeners > HTTPS (or whatever name you used) > SSL, and click the Edit button. Specify the private key and certificate path, then click the Save button.
+  Let's Encrypt
+  - Private Key File = /etc/letsencrypt/live/example.com/privkey.pem (Use your own key path)
+  - Certificate File = /etc/letsencrypt/live/example.com/fullchain.pem (Use your own cert path)
+  - Chained Certificate = Yes
+  Temporary certificate(web admin) or [private self-signed certificate](https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl)
+  - Private Key File = /usr/local/lsws/conf/example.key (Use your own key path)
+  - Certificate File = /usr/local/lsws/conf/example.crt (Use your own cert path)
+  - Chained Certificate = Not Set
 
-Go to the WebAdmin console \>  Listeners.
-You can have one listener to listen on all local IP addresses, or you can create multiple listeners with each listener only listening to a specific IP address. Many users will find it simpler to have one listener that is then mapped to different domains, but having multiple listeners can be useful if, for example, you wish to set aside certain server processors for certain sites (see the [listener binding section](http://www.litespeedtech.com/docs/webserver/config/listeners/#listenerBinding) of LSWS's documentation) or conduct special functions on separate ports.
-I don't need anything special, so I just go to the Default listener (that listens to all IPs on port 80):
-![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-listener-new-1024x272.png)
-And add a new mapping:
-![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-add-listener-mapping-new-1024x450.png)
-And input the domain for my virtual host: (In the Domains setting, "your.domain" will match to both "www.your.domain" and "your.domain". The leading "www." in a domain name is ignored.)
-![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-add-listener-mapping2-new-1024x361.png)
+### Virtual Hosts mapping:
+Go to the WebAdmin console > Listeners > HTTP, click the Add button from the Virtual Host Mappings area and set with following settings. 
+  - Virtual Host = Example2
+  - Domains = example2.com, www.example2.com
+Go to the WebAdmin console > Listeners > HTTPS, click the Add button from the Virtual Host Mappings area and set with following settings. 
+  - Virtual Host = Example2
+  - Domains = example2.com, www.example2.com
 
-### <span id="Graceful_restart" class="mw-headline">Graceful Restart</span>
+## SSL setup
 
-![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-restart-new-1024x438.png)
-And we're done\! :)
-![](https://openlitespeed.org/wp-content/uploads/2018/06/namebased-vh-works-new-1024x355.png)
 **Note:** OpenLiteSpeed supports Server Name Indication (SNI), allowing users to set SSL certificates at the virtual host level. This means that virtual hosts (websites) with different SSL certificates can operate on the the same IP address and port number. Different listeners (and IP-based hosting) are not necessary for secure sites to have unique certificates.
 
-## Listener Setup 
 
 ## Cache Setup
 Cache Module is Installed and Enabled by default, so we don't need to change any settings for it. 
