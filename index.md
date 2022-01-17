@@ -6,7 +6,7 @@ description: "OpenLiteSpeed is a high-performance, lightweight, open source HTTP
 permalink: /
 ---
 
-# What is OpenLiteSpeed
+# High Performence Web Server
 {: .fs-9 }
 
 OpenLiteSpeed is a high-performance, lightweight, open source Web server, provide user multiple easy setup method.
