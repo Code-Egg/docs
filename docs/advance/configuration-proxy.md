@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Proxy
-parent: Configuration
-permalink: /docs/configuration/proxy
+parent: Advance
+permalink: /docs/advance/proxy
 nav_order: 5
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Security
-parent: Configuration
-permalink: /docs/configuration/security
+parent: Advance
+permalink: /docs/advance/security
 nav_order: 4
 ---
 
