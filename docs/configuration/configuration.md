@@ -71,6 +71,7 @@ Go to the WebAdmin console > Listeners. The default listener that listens to al
   - **Private Key File** = `/etc/letsencrypt/live/example.com/privkey.pem` (Use your own key path)
   - **Certificate File** = `/etc/letsencrypt/live/example.com/fullchain.pem` (Use your own cert path)
   - **Chained Certificate** = `Yes`
+  
   Temporary certificate(web admin) or [private self-signed certificate](https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl)
   - **Private Key File** = `/usr/local/lsws/conf/example.key` (Use your own key path)
   - **Certificate File** = `/usr/local/lsws/conf/example.crt` (Use your own cert path)
