@@ -18,8 +18,6 @@ nav_order: 4
 </details>
 ---
 
-## Security Setup
-
 ## reCAPTCHA with OpenLiteSpeed
 
 As of OpenLiteSpeed 1.5.1, reCAPTCHA is available as a method of defense against DDoS attack.
