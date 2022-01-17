@@ -2,7 +2,7 @@
 layout: default
 title: Proxy
 parent: Configuration
-permalink: /configuration/proxy
+permalink: /docs/configuration/proxy
 nav_order: 5
 ---
 

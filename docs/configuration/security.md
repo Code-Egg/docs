@@ -2,7 +2,7 @@
 layout: default
 title: Security
 parent: Configuration
-permalink: /configuration/security
+permalink: /docs/configuration/security
 nav_order: 4
 ---
 
