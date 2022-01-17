@@ -1,8 +1,21 @@
 ---
 layout: default
 title: Proxy
-parent: Advance
-nav_order: 4
+parent: Configuration
+permalink: /configuration/proxy
+nav_order: 5
+---
+
+---
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+
+</details>
 ---
 
 #### Setting up OpenLiteSpeed as a reverse proxy
