@@ -19,15 +19,6 @@ permalink: /docs/installation/repo
 
 </details>
 
-## Supported OS 
-
-You can install OpenLiteSpeed via the LiteSpeed Repo on any of these operating systems:
-
-- [Debian 7, 8, 9, 10](https://www.debian.org/distrib/)
-- [Ubuntu 16, 18, 20](https://www.ubuntu.com/download)
-- [CentOS 6, 7, 8](https://www.centos.org/download/)
-- [AlamaLinux 8](https://mirrors.almalinux.org/isos.html)
-
 ## Install LiteSpeed Repository
 
 - Debian/Ubuntu

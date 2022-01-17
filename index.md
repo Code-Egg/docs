@@ -19,9 +19,19 @@ OpenLiteSpeed is a high-performance, lightweight, open source Web server, provid
 OpenLiteSpeed is the Open Source edition of LiteSpeed Web Server Enterprise. Both servers are actively developed and maintained by the same team, and are held to the same high-quality coding standard. OpenLiteSpeed contains all of the essential features found in LiteSpeed Enterprise, and represents our commitment to support the Open Source community.
 
 ## Getting started
+
 - [Installation](/docs/installation)
 - [Configuration](/docs/configuration)
 - [PHP](/docs/php)
+
+### Supported OS 
+
+- [Debian 7, 8, 9, 10](https://www.debian.org/distrib/)
+- [Ubuntu 16, 18, 20](https://www.ubuntu.com/download)
+- [CentOS 6, 7, 8](https://www.centos.org/download/)
+- [AlamaLinux 8](https://mirrors.almalinux.org/isos.html)
+
+
 
 ## About the project
 
