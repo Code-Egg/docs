@@ -20,7 +20,7 @@ OpenLiteSpeed is the Open Source edition of LiteSpeed Web Server Enterprise. Bot
 
 ## Getting started
 
-- [Installation](/docs/installation/repo)
+- [Installation](/docs/docs/installation/repo)
 - [Configuration](/docs/configuration)
 - [PHP](/docs/php)
 
