@@ -19,10 +19,15 @@ OpenLiteSpeed is a high-performance, lightweight, open source Web server, provid
 OpenLiteSpeed is the Open Source edition of LiteSpeed Web Server Enterprise. Both servers are actively developed and maintained by the same team, and are held to the same high-quality coding standard. OpenLiteSpeed contains all of the essential features found in LiteSpeed Enterprise, and represents our commitment to support the Open Source community.
 
 ## Getting started
-
-- [Installation](/docs/docs/installation/repo)
+- [Installation](/docs/docs/installation/repo) 
 - [Configuration](/docs/configuration)
 - [PHP](/docs/php)
+
+## Fast setup methods
+- [Installation](/docs/docs/installation/image) test {: .label .label-blue }
+- [Installation](/docs/docs/installation/script) 
+- [Installation](/docs/docs/installation/docker) 
+
 
 ### Supported OS 
 
