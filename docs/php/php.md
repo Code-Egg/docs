@@ -2,7 +2,7 @@
 layout: default
 title: PHP
 nav_order: 3
-permalink: /docs/php/repo
+permalink: /php
 ---
 
 # Set Up LSPHP With the LiteSpeed Repository
