@@ -2,9 +2,8 @@
 layout: default
 title: Configuration
 nav_order: 3
-parent: Configuration
-permalink: /configuration
 has_children: true
+permalink: /configuration
 ---
 
 ---

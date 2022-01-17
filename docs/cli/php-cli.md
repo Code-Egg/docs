@@ -2,8 +2,8 @@
 layout: default
 title: PHP Setup With CLI
 nav_order: 2
-parent: PHP
-permalink: /docs/php/cli
+parent: CLI
+permalink: /docs/cli/cli
 ---
 
 # Set Up LSPHP With the LiteSpeed Repository
