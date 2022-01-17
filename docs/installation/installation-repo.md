@@ -48,11 +48,12 @@ sudo yum install openlitespeed
 ```
 
 ## WebAdmin Access
-Run the following command to set web admin password if needed,
+
+Run the following command to set the WebAdmin password if needed:
 ```bash
 sudo /usr/local/lsws/admin/misc/admpass.sh
 ```
-And now you can open the web admin, e.g. https://example.com:7080/ on your browser and log in. 
+To access the WebAdmin console, visit port `7080` of your domain (for example,`https://example.com:7080/`) and log in using the password you just set. 
 
 ## Next Steps
 {: .no_toc} 
