@@ -47,6 +47,13 @@ sudo apt-get install openlitespeed
 sudo yum install openlitespeed
 ```
 
+## WebAdmin Access
+Run the following command to set web admin password if needed,
+```bash
+sudo /usr/local/lsws/admin/misc/admpass.sh
+```
+And now you can open the web admin, e.g. https://example.com:7080/ on your browser and log in. 
+
 ## Next Steps
 {: .no_toc} 
 
