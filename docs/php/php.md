@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PHP Setup
+title: PHP
 nav_order: 3
 permalink: /docs/php/repo
 ---
