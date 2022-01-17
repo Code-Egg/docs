@@ -24,11 +24,12 @@ OpenLiteSpeed is the Open Source edition of LiteSpeed Web Server Enterprise. Bot
 - [PHP](/docs/php)
 
 ## Fast setup methods
-- [Installation](/docs/docs/installation/image)
+- [Launch from Image](/docs/docs/installation/image)
+
 New
 {: .label .label-green }
-- [Installation](/docs/docs/installation/script) 
-- [Installation](/docs/docs/installation/docker) 
+- [Install from Script](/docs/docs/installation/script) 
+- [Launch from Docker](/docs/docs/installation/docker) 
 
 
 ### Supported OS 
