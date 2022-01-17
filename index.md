@@ -45,7 +45,7 @@ New
 
 ## About the project
 
-OpenLiteSpeed is &copy; 2013-{{ "now" | date: "%Y" }} by [LiteSpeedtech](https://www.litespeedtech.com/).
+OpenLiteSpeed is &copy; 2013-{{ "now" | date: "%Y" }} by [LiteSpeed Technologies](https://www.litespeedtech.com/).
 
 ### License
 
