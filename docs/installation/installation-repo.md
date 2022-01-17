@@ -19,15 +19,6 @@ permalink: /docs/installation/repo
 
 </details>
 
-## Supported OS 
-
-You can install OpenLiteSpeed via the LiteSpeed Repo on any of these operating systems:
-
-- [Debian 7, 8, 9, 10](https://www.debian.org/distrib/)
-- [Ubuntu 16, 18, 20](https://www.ubuntu.com/download)
-- [CentOS 6, 7, 8](https://www.centos.org/download/)
-- [AlamaLinux 8](https://mirrors.almalinux.org/isos.html)
-
 ## Install LiteSpeed Repository
 
 - Debian/Ubuntu
@@ -55,6 +46,13 @@ sudo apt-get install openlitespeed
 ```bash
 sudo yum install openlitespeed
 ```
+
+## WebAdmin Access
+Run the following command to set web admin password if needed,
+```bash
+sudo /usr/local/lsws/admin/misc/admpass.sh
+```
+And now you can open the web admin, e.g. https://example.com:7080/ on your browser and log in. 
 
 ## Next Steps
 {: .no_toc} 

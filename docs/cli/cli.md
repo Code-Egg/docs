@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Advance
+title: CLI
 nav_order: 6
 has_children: true
-permalink: /advance
+permalink: /cli
 ---
