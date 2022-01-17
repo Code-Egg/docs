@@ -20,6 +20,7 @@ permalink: /configuration
 ## Virtual Host Setup
 
 With name-based virtual hosting, you can host more than one website (virtual host) on each IP address.
+There's a default virtual host named Example, skip this step if you don't need a new one. 
 
 ### Setup DNS Properly
 {: .no_toc}
