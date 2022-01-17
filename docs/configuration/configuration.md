@@ -26,7 +26,7 @@ With name-based virtual hosting, you can host more than one website (virtual hos
 Forward the domain names of your web sites to the IP address used by your web server. This is commonly done by adding an "A" name entry to the DNS zone file for the website. This is not part of your OpenLiteSpeed configurations.
 
 ### Create a Virtual Host directories
-{:toc}
+{: .no_toc}
 1. Make the virtual host's directories. I will name my virtual host "Example2" as an example. In the command line, I go to my LSWS directory and make the following directories:
 ```bash
 mkdir /usr/local/lsws/Example2
@@ -54,7 +54,7 @@ chown lsadm:lsadm /usr/local/lsws/Example2/conf
 
 ## Listeners setup
 ### Listener create 
-{:toc}
+{: .no_toc}
 Go to the WebAdmin console > Listeners. The default listener that listens to all IPs on port 8088. You might want to create another two listeners for both HTTP and HTTPS ports.  
 1. Click the Add button to create a HTTP listener with following settings:
   - **Listener Name** = `HTTP`
@@ -77,7 +77,7 @@ Go to the WebAdmin console > Listeners. The default listener that listens to al
   - **Chained Certificate** = `Not Set`
 
 ### Virtual Hosts mapping
-{:toc}
+{: .no_toc}
 Go to the WebAdmin console > Listeners > HTTP, click the Add button from the Virtual Host Mappings area and set with following settings. 
   - **Virtual Host** = `Example2`
   - **Domains** = `example2.com, www.example2.com`
