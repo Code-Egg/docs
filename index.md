@@ -9,19 +9,19 @@ permalink: /
 # High Performence Web Server
 {: .fs-9 }
 
-OpenLiteSpeed is a high-performance, lightweight, open source Web server, provide user multiple easy setup method.
+OpenLiteSpeed (OLS) is a high-performance, lightweight, open-source web server, which provides multiple easy setup methods to choose from.
 {: .fs-6 .fw-300 }
 
-[Get started now](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/litespeedtech/openlitespeed){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Get started now](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View OLS on GitHub](https://github.com/litespeedtech/openlitespeed){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
-OpenLiteSpeed is the Open Source edition of LiteSpeed Web Server Enterprise. Both servers are actively developed and maintained by the same team, and are held to the same high-quality coding standard. OpenLiteSpeed contains all of the essential features found in LiteSpeed Enterprise, and represents our commitment to support the Open Source community.
+OpenLiteSpeed is the Open Source edition of LiteSpeed Web Server Enterprise. Both servers are actively developed and maintained by the same team, and are held to the same high-quality coding standard. OLS contains all of the essential features found in LiteSpeed Enterprise, and represents our commitment to support the Open Source community.
 
 ## Getting started
 - [Installation](/docs/docs/installation/repo) 
 - [Configuration](/docs/configuration)
-- [PHP](/docs/php)
+- [PHP Setup](/docs/php)
 
 ## Fast setup methods
 {: .d-inline-block }
@@ -49,10 +49,12 @@ OpenLiteSpeed is &copy; 2013-{{ "now" | date: "%Y" }} by [LiteSpeedtech](https:/
 
 ### License
 
-OpenLiteSpeed is distributed by an [GPLv3 license](https://www.litespeedtech.com/open-source/openlitespeed).
+OpenLiteSpeed is distributed under a [GPLv3 license](https://www.litespeedtech.com/open-source/openlitespeed).
 
-### Contributing
-Thank you to the contributors of OpenLiteSpeed!
+<!-- Only uncomment this if you can link it to the actual OLS repo
+
+### Contributors
+Many thanks to our OpenLiteSpeed contributors!
 
 <ul class="list-style-none">
 {% for contributor in site.github.contributors %}
@@ -62,4 +64,5 @@ Thank you to the contributors of OpenLiteSpeed!
 {% endfor %}
 </ul>
 
+-->
 
