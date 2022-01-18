@@ -93,6 +93,7 @@ Set to `0` to disable throttling. The **Outbound Bandwidth** limit allows servin
   - **Block Bad Request** = `Yes`
   - **Grace Period (sec)** = `15`
   - **Banned Period (sec)** = `60`
+
 ```text
 ###### Configuration value for the WebAdmin console ######
   - Static Requests/second          = 40
