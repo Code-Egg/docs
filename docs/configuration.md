@@ -1,9 +1,8 @@
 ---
 layout: default
-title: General Configuration
+title: Configuration
 nav_order: 4
-parent: Config
-permalink: /config/configuration
+permalink: /configuration
 ---
 
 ---

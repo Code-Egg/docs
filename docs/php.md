@@ -1,9 +1,8 @@
 ---
 layout: default
-title: Setup PHP
+title: PHP
 nav_order: 3
-parent: Config
-permalink: /config/php
+permalink: /php
 ---
 
 # Set Up LSPHP With the LiteSpeed Repository
@@ -111,3 +110,6 @@ If you want to use different settings for any of your virtual hosts, you can set
   - **Suffixes**: `php`
   - **Handler Type**: `LiteSpeed SAPI`
   - **Handler Name**: `lsphp80`
+
+## Next Page
+[Configuration](/docs/configuration)
