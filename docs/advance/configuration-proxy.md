@@ -27,7 +27,7 @@ You do do it either Server level or Virtual Host level.
 To set up external application at server level, you add a Web Server in the **WebAdmin Console**: Navigate to **Server Configuration > External App > Add > Type**
 
 The most important setting is Address. Set your backend server up to listen on this address and port. For simplicity, we've set our copy of Apache to listen on port 8080.
-```txt
+```text
 Name                    = apache
 Address                 = localhost:8080
 Max Connections         = 100
@@ -58,7 +58,7 @@ Using a proxy context to designate which traffic to proxy has the advantage of a
 
 Add a Proxy context from the **WebAdmin Console**: Navigate to **Virtual Host Configuration > [Example] > Add > Type > Proxy**
 With the following settings, we will be proxying all the locations on this site to the web server internal app.
-```txt
+```text
 URI        =  /
 Web Server =  [Server Level]: apache
 ```
@@ -115,7 +115,7 @@ RewriteRule ^(.*)$ HTTPS://apachehttps/$1 [P,L,E=PROXY-HOST:WWW.EXAMPLE1.COM]
 ## Map the Proxy vhost to Your Listener(s)
 
 **WebAdmin Console**: Navigate to **Listeners > [listener Name] > Virtual Host Mappings > Add**
-```txt
+```text
 Virtual =  Host: proxy-vhost
 Domain  =  proxy-vhost.domain.com
 ```
