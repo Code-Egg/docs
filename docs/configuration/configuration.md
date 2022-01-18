@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuration
+title: General Configuration
 nav_order: 3
 permalink: /configuration
 ---

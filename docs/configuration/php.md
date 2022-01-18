@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PHP
+title: Setup PHP
 nav_order: 3
 permalink: /php
 ---
