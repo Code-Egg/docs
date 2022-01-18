@@ -85,13 +85,62 @@ Handler Type   Web Server
 Handler Name   apache
 ```
 
-```yaml
+```conf
+Suffixes       html
+Handler Type   Web Server
+Handler Name   apache
+```
+
+```conf
+Suffixes       = html
+Handler Type   = Web Server
+Handler Name   = apache
+```
+
+```json
+Suffixes       html
+Handler Type   Web Server
+Handler Name   apache
+```
+
+```json
+Suffixes       = html
+Handler Type   = Web Server
+Handler Name   = apache
+```
+
+
+```md
+Suffixes       html
+Handler Type   Web Server
+Handler Name   apache
+```
+
+```md
+Suffixes       = html
+Handler Type   = Web Server
+Handler Name   = apache
+```
+
+```nginx
+Suffixes       html
+Handler Type   Web Server
+Handler Name   apache
+```
+
+```toml
 Suffixes      =  html
 Handler Type  =  Web Server
 Handler Name  =  apache
 ```
 
 ```yaml
+* Suffixes      =  html
+* Handler Type  =  Web Server
+* Handler Name  =  apache
+```
+
+```text
 * Suffixes      =  html
 * Handler Type  =  Web Server
 * Handler Name  =  apache
