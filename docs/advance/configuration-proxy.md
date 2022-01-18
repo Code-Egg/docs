@@ -36,7 +36,7 @@ Retry Timeout           = 0
 Response Buffering      = No
 ```
 
-Now you have OpenLiteSpeed ready to proxy to your backend server. next, we need to setup rewrite rules, contexts, or script handlers so 
+Now you have OpenLiteSpeed ready to proxy to your backend server. next, we need to setup [rewrite rules](#method-3-proxying-with-rewrite-rules), [contexts](#method-1-proxy-with-context), or [script handlers](#method-2-proxy-with-script-handlers) so 
 OpenLiteSpeed knows what traffic to send to this external application. 
 
 **Note:** If you are using IP-based virtual hosting, you will need to set up a different web server external application for each vhost, as each web server external application only reroutes traffic to a single IP address.
@@ -46,14 +46,15 @@ OpenLiteSpeed knows what traffic to send to this external application.
 For this guide we will show the methos by using the default virtual host, `Example` as example, and proxy files to an Apache backend.
 
 ### Method 1: Proxy with Context
-{: .no_toc}
+{: .d-inline-block }
+Flexible to add more contexts ahead
+{: .label .label-green }
+
 Proxying with contexts allows you to add other context functionality on top of your proxying.
 Using a proxy context to designate which traffic to proxy has the advantage of allowing you to easily set aside a location on your site to be proxied. 
 
 #### Create Context
-{: .d-inline-block }
-Flexible to add more contexts ahead
-{: .label .label-green }
+{: .no_toc}
 
 Add a Proxy context from the **WebAdmin Console**: Navigate to **Virtual Host Configuration > [Example] > Add > Type > Proxy**
 With the following settings, we will be proxying all the locations on this site to the web server internal app.
