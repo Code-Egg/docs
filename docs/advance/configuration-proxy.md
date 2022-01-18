@@ -27,12 +27,14 @@ You do do it either Server level or Virtual Host level.
 To set up external application at server level, you add a Web Server in the **WebAdmin Console**: Navigate to **Server Configuration > External App > Add > Type**
 
 The most important setting is Address. Set your backend server up to listen on this address and port. For simplicity, we've set our copy of Apache to listen on port 8080.
-    - **Name** = `apache`
-    - **Address** = `localhost:8080`
-    - **Max Connections** = `100`
-    - **Initial Request Timeout** = `60`
-    - **Retry Timeout** = `0`
-    - **Response Buffering** = `No`
+```txt
+Name                    = apache
+Address                 = localhost:8080
+Max Connections         = 100
+Initial Request Timeout = 60
+Retry Timeout           = 0
+Response Buffering      = No
+```
 
 Now you have OpenLiteSpeed ready to proxy to your backend server. next, we need to setup rewrite rules, contexts, or script handlers so 
 OpenLiteSpeed knows what traffic to send to this external application. 
@@ -55,9 +57,10 @@ Flexible to add more contexts ahead
 
 Add a Proxy context from the **WebAdmin Console**: Navigate to **Virtual Host Configuration > [Example] > Add > Type > Proxy**
 With the following settings, we will be proxying all the locations on this site to the web server internal app.
-  - URI = `/`
-  - Web Server = `[Server Level]: apache`
-
+```txt
+URI        =  /
+Web Server =  [Server Level]: apache
+```
 ### Method 2: Proxy with Script Handlers
 {: .d-inline-block }
 proxy certain kinds of content
@@ -69,19 +72,10 @@ Setting up a script handler mapped to your web server external application allow
 {: .no_toc}
 
 Add a Script Handler from the **WebAdmin Console**: Navigate to **Virtual Host Configuration > [Example] > Script Handler > Add**
-  - Suffixes = `html`
-  - Handler Type = `Web Server`
-  - Handler Name = `apache`
-
-```apache
+```text
 Suffixes      =  html
 Handler Type  =  Web Server
 Handler Name  =  apache
-```
-```text
-* Suffixes      =  html
-* Handler Type  =  Web Server
-* Handler Name  =  apache
 ```
 
 ### Method 3: Proxying with Rewrite Rules
@@ -112,15 +106,15 @@ REWRITERULE ^(.*)$ HTTP://apachehttp/$1 [P,L,E=PROXY-HOST:WWW.EXAMPLE1.COM]
 RewriteRule ^(.*)$ HTTPS://apachehttps/$1 [P,L,E=PROXY-HOST:WWW.EXAMPLE1.COM]
 ```
 **Note:** 
-    - "apache" is the name of a proxy (web server) external application you have created.
-    - If you are using IP-based virtual hosting, you will need to set up a different web server external application for each vhost, as each web server external application only reroutes traffic to a single IP address.
-    - Add "https://" in front if the external web server uses HTTPS. Port is optional if the external web server uses the standard ports 80 or 443.
+    - "apache/apachehttp/apachehttps" is the name of a proxy (web server) external application you have created.
+    - For IP-based virtual hosting, you will need to set up a different web server external application for each vhost, as each web server external application only reroutes traffic to a single IP address.
+    - Add "https://" in front if the external web server uses HTTPS. Port is optional if the external web server uses the standard ports.
     - For more advanced situations, please see [Advanced Reverse Proxy](https://openlitespeed.org/kb/advanced-reverse-proxy/).
 
 ## Map the Proxy vhost to Your Listener(s)
 
 **WebAdmin Console**: Navigate to **Listeners > [listener Name] > Virtual Host Mappings > Add**
-```apache
-Virtual= Host: proxy-vhost
-Domain = proxy-vhost.domain.com
+```txt
+Virtual =  Host: proxy-vhost
+Domain  =  proxy-vhost.domain.com
 ```
