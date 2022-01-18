@@ -85,10 +85,16 @@ Handler Type   Web Server
 Handler Name   apache
 ```
 
-```apache
+```yaml
 Suffixes      =  html
 Handler Type  =  Web Server
 Handler Name  =  apache
+```
+
+```yaml
+* Suffixes      =  html
+* Handler Type  =  Web Server
+* Handler Name  =  apache
 ```
 
 ### Method 3: Proxying with Rewrite Rules
