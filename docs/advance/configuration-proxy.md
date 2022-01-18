@@ -73,42 +73,6 @@ Add a Script Handler from the **WebAdmin Console**: Navigate to **Virtual Host C
   - Handler Type = `Web Server`
   - Handler Name = `apache`
 
-```apache
-  - Suffixes = `html`
-  - Handler Type = `Web Server`
-  - Handler Name = `apache`
-```
-
-```apache
-Suffixes       html
-Handler Type   Web Server
-Handler Name   apache
-```
-
-```conf
-Suffixes       html
-Handler Type   Web Server
-Handler Name   apache
-```
-
-```conf
-Suffixes       = html
-Handler Type   = Web Server
-Handler Name   = apache
-```
-
-```json
-Suffixes       html
-Handler Type   Web Server
-Handler Name   apache
-```
-
-```json
-Suffixes       = html
-Handler Type   = Web Server
-Handler Name   = apache
-```
-
 
 ```md
 Suffixes       html
@@ -117,21 +81,24 @@ Handler Name   apache
 ```
 
 ```md
-Suffixes       = html
-Handler Type   = Web Server
-Handler Name   = apache
+* Suffixes       = html
+* Handler Type   = Web Server
+* Handler Name   = apache
 ```
-
+```md
+* Suffixes       = `html`
+* Handler Type   = `Web Server`
+* Handler Name   = `apache`
+```
 ```nginx
 Suffixes       html
 Handler Type   Web Server
 Handler Name   apache
 ```
-
-```toml
-Suffixes      =  html
-Handler Type  =  Web Server
-Handler Name  =  apache
+```nginx
+* Suffixes       = html
+* Handler Type   = Web Server
+* Handler Name   = apache
 ```
 
 ```yaml
