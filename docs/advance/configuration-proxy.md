@@ -16,12 +16,12 @@ nav_order: 5
 
 </details>
 
-## Setting up OpenLiteSpeed as a reverse proxy
+# Setting up OpenLiteSpeed as a reverse proxy
 
 OpenLiteSpeed can be set up as a transparent reverse proxy to any backend web server or application server that supports HTTP. OpenLiteSpeed proxies to other servers by setting them as external applications.
 Once you have set up your web server external application, you will have to set which traffic OpenLiteSpeed should send to that external application. This can be done in a number of ways: via rewrite rules, contexts, or script handlers.
 
-### Create a Web Server External Application 
+## Create a Web Server External Application 
 
 You do do it either Server level or Virtual Host level. 
 To set up external application at server level, you add a Web Server in the **WebAdmin Console**: Navigate to **Server Configuration > External App > Add > Type**
@@ -41,7 +41,8 @@ OpenLiteSpeed knows what traffic to send to this external application.
 
 **Note:** If you are using IP-based virtual hosting, you will need to set up a different web server external application for each vhost, as each web server external application only reroutes traffic to a single IP address.
 
----
+
+## Proxy Method
 
 For this guide we will show the methos by using the default virtual host, `Example` as example, and proxy files to an Apache backend.
 
