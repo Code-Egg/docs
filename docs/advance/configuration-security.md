@@ -70,6 +70,7 @@ Set to `0` to disable throttling. The **Outbound Bandwidth** limit allows servin
 **Note**: The number of connections can temporarily exceed the soft limit during the grace period, as long as it is under the hard limit. After the grace period, if it is still above the soft limit, then no more connections will be allowed from that IP for duration of the banned period.
 
 ### Example
+{: .no_toc}
 
 - Default values
   - **Static Requests/second** = `0`
@@ -92,6 +93,17 @@ Set to `0` to disable throttling. The **Outbound Bandwidth** limit allows servin
   - **Block Bad Request** = `Yes`
   - **Grace Period (sec)** = `15`
   - **Banned Period (sec)** = `60`
-
+```text
+###### Configuration value for the WebAdmin console ######
+  - Static Requests/second          = 40
+  - Dynamic Requests/second         =2
+  - Outbound Bandwidth              = 0
+  - Inbound Bandwidth               = 0
+  - Connection Soft Limit           = 15
+  - Connection Hard Limit           = 20
+  - Block Bad Request               = Yes
+  - Grace Period (sec)              = 15
+  - Banned Period (sec)             = 60
+```
 Explanation: An IP that has established more than 20 connections with the web server, or has established over 15 connections of over 15 seconds (the grace period), is treated as a DoS-attacker. The server will ban the IP for 60 seconds and record a log entry in the error log file. To exclude any IP from the client throttle limits (and bypass DDoS detection), add the IP with a trailing `T` (aka trusted) in **Allowed List** (**WebAdmin Console > Server > Security > Access Control**).
 The hard limit can be adjusted based on an attacker's strategy. If the botnet is not very aggressive, you will need to lower the limit to just below their max connection per IP, to make sure it won't affect a regular user. If they only make very few connections per IP, do not use the hard limit to detect them.
