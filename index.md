@@ -32,7 +32,7 @@ Fast
 - [Launch from Docker](/docs/docs/installation/docker) 
 
 
-### Supported Operating Systems 
+## Supported Operating Systems 
 
 - [Debian 7, 8, 9, 10, 11](https://www.debian.org/distrib/)
 - [Ubuntu 16, 18, 20](https://www.ubuntu.com/download)
@@ -48,7 +48,7 @@ OpenLiteSpeed is &copy; 2013-{{ "now" | date: "%Y" }} by [LiteSpeed Technologies
 Learn more at [openlitespeed.org](https://openlitespeed.org).
 
 
-### Contributors
+## Contributors
 Many thanks to our OpenLiteSpeed contributors!
 
 <ul class="list-style-none">
