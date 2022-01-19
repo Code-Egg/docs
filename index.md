@@ -6,7 +6,7 @@ description: "OpenLiteSpeed is a high-performance, lightweight, open source HTTP
 permalink: /
 ---
 
-# High Performence Web Server
+# High Performance Web Server
 {: .fs-9 }
 
 OpenLiteSpeed (OLS) is a high-performance, lightweight, open-source web server, which provides multiple easy setup methods to choose from.
@@ -18,15 +18,13 @@ OpenLiteSpeed (OLS) is a high-performance, lightweight, open-source web server, 
 
 OpenLiteSpeed is the Open Source edition of LiteSpeed Web Server Enterprise. Both servers are actively developed and maintained by the same team, and are held to the same high-quality coding standard. OLS contains all of the essential features found in LiteSpeed Enterprise, and represents our commitment to support the Open Source community.
 
-## Getting started
+## Getting Started
 - [Installation](/docs/docs/installation/repo) 
 - [Configuration](/docs/configuration)
-- [PHP Setup](/docs/php)
 
-## Fast setup methods
+## Alternative Setup Methods
 {: .d-inline-block }
-
-New
+Fast
 {: .label .label-green }
 
 - [Launch from Image](/docs/docs/installation/image) 
@@ -34,7 +32,7 @@ New
 - [Launch from Docker](/docs/docs/installation/docker) 
 
 
-### Supported OS 
+### Supported Operating Systems 
 
 - [Debian 7, 8, 9, 10, 11](https://www.debian.org/distrib/)
 - [Ubuntu 16, 18, 20](https://www.ubuntu.com/download)
@@ -43,13 +41,11 @@ New
 
 
 
-## About the project
+## About OpenLiteSpeed
 
-OpenLiteSpeed is &copy; 2013-{{ "now" | date: "%Y" }} by [LiteSpeed Technologies](https://www.litespeedtech.com/).
+OpenLiteSpeed is &copy; 2013-{{ "now" | date: "%Y" }} by [LiteSpeed Technologies](https://www.litespeedtech.com/), and is distributed under a [GPLv3 license](https://www.litespeedtech.com/open-source/openlitespeed).
 
-### License
-
-OpenLiteSpeed is distributed under a [GPLv3 license](https://www.litespeedtech.com/open-source/openlitespeed).
+Learn more at [openlitespeed.org](https://openlitespeed.org).
 
 
 ### Contributors
