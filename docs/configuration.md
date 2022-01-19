@@ -37,13 +37,15 @@ mkdir /usr/local/lsws/Example2/{conf,html,logs}
 ```bash
 chown lsadm:lsadm /usr/local/lsws/Example2/conf
 ```
-3. Add the `Eample2` virtual host to the WebAdmin Console. Navigate to **Virtual Hosts > Add**, and configure the settings like so:
+3. Add the `Example2` virtual host to the WebAdmin Console. Navigate to **Virtual Hosts > Add**, and configure the settings like so:
   - **Virtual Host Name** = `Example2`
   - **Virtual Host Root** = `$SERVER_ROOT/Example2`
   - **Config File** = `$SERVER_ROOT/conf/vhosts/Example2/vhost.conf`
   - **Enable Scripts/ExtApps** = `Yes` 
   - **Restrained** = `No`
-4. You might see the following warning:```file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE``` This is because you are starting from scratch with this virtual host's configuration. Go ahead and click to create.
+4. You might see the following warning:```
+file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE
+``` This is because you are starting from scratch with this virtual host's configuration. Go ahead and click to create.
 5. Click the **Save** button, return to Example2's configuration, and change the following settings under the **General** tab:
   - **Document Root** = `/usr/local/lsws/Example2/html`
   - **Index Files** = `index.html, index.php`
@@ -67,14 +69,14 @@ Navigate to **Listeners** in the WebAdmin Console. There is already a default li
   - **Port** = `443`
   - **Secure** = `Yes`
 3. To configure SSL on the listener you named `HTTPS`, navigate to **Listeners > HTTPS > SSL**, and click the **Edit** button. Specify the private key and certificate path, then click the **Save** button.
-  Here are some possible values for Let's Encrypt, but be sure to use your own correct path:
-  - **Private Key File** = `/etc/letsencrypt/live/example.com/privkey.pem` (Use your own key path)
-  - **Certificate File** = `/etc/letsencrypt/live/example.com/fullchain.pem` (Use your own cert path)
-  - **Chained Certificate** = `Yes`
-  Here are some possible values for a temporary WebAdmin certificate or a [private self-signed certificate](https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl), but be sure to use your own correct path:
-  - **Private Key File** = `/usr/local/lsws/conf/example.key` (Use your own key path)
-  - **Certificate File** = `/usr/local/lsws/conf/example.crt` (Use your own cert path)
-  - **Chained Certificate** = `Not Set`
+  - Here are some possible values for Let's Encrypt, but be sure to use your own correct path:
+    - **Private Key File** = `/etc/letsencrypt/live/example.com/privkey.pem`
+    - **Certificate File** = `/etc/letsencrypt/live/example.com/fullchain.pem`
+    - **Chained Certificate** = `Yes`
+  - Here are some possible values for a temporary WebAdmin certificate or a [private self-signed certificate](https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl), but be sure to use your own correct path:
+    - **Private Key File** = `/usr/local/lsws/conf/example.key`
+    - **Certificate File** = `/usr/local/lsws/conf/example.crt`
+    - **Chained Certificate** = `Not Set`
 
 ### Map Virtual Hosts
 {: .no_toc}
@@ -124,8 +126,7 @@ LSAPI_AVOID_FORK=200M```
 #### Set up PHP at the Virtual Host Level 
 {: .no_toc}
 If you want to use different settings for any of your virtual hosts, you can set up the same external applications and script handlers at the virtual host level, which will override any server-level script handler settings. 
-1. Navigate to **Server Configuration > Virtual Hosts > [Example] > Script Handlers > Add**, replacing "[Example]" with the name of the actual Virtual Host you want to edit.
-2. Give the new script handler appropriate settings, using the following example as a guide:
+1. Navigate to **Server Configuration > Virtual Hosts > Example2 > Script Handlers > Add**, and update the new script handler with appropriate settings, using the following example as a guide:
   - **Suffixes**: `php`
   - **Handler Type**: `LiteSpeed SAPI`
   - **Handler Name**: `lsphp80`
