@@ -2,7 +2,7 @@
 layout: default
 title: Proxy
 parent: Advance
-permalink: /docs/advance/proxy
+permalink: /docs/advanced/proxy
 nav_order: 5
 ---
 

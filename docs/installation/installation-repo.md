@@ -71,7 +71,7 @@ sudo apt-cache search lsphp
 sudo yum search lsphp
 ```
 
-## WebAdmin Access
+## Access the WebAdmin Console
 
 Run the following command to set the WebAdmin password if needed:
 ```bash
