@@ -17,76 +17,71 @@ permalink: /configuration
 </details>
 ---
 
-## Virtual Host Setup
+## Set up Virtual Hosts
 
-With name-based virtual hosting, you can host more than one website (virtual host) on each IP address.
-There's a default virtual host named Example, skip this step if you don't need a new one. 
+With name-based virtual hosting, you can host more than one website (also called a "virtual host" or "vhost") on each IP address.
+There's a default virtual host named `Example`. If you don't need any more virtual hosts, you can skip this step. 
 
-### Setup DNS Properly
+### Set up DNS
 {: .no_toc}
-Forward the domain names of your web sites to the IP address used by your web server. This is commonly done by adding an "A" name entry to the DNS zone file for the website. This is not part of your OpenLiteSpeed configurations.
+Forward the domain names of your web sites to the IP address used by your web server. This is commonly done by adding an `A` name entry to the DNS zone file for the website. This is not part of OpenLiteSpeed configuration. Please see your DNS provider for further instruction, if needed.
 
-### Create a Virtual Host directories
+### Create Virtual Host Directories
 {: .no_toc}
-1. Make the virtual host's directories. I will name my virtual host "Example2" as an example. In the command line, I go to my LSWS directory and make the following directories:
+1. Create directories for your new virtual host. In this example, we've named our virtual host `Example2`. From the command line, add an `Example2` directory, plus three subdirectories `conf`,`html`, and `logs`, in your LSWS directory, like so:
 ```bash
 mkdir /usr/local/lsws/Example2
 mkdir /usr/local/lsws/Example2/{conf,html,logs}
 ```
-I then make conf owned by `lsadm:lsadm` (the WebAdmin console user) so that only the WebAdmin console will be able to manipulate configurations.
+2. Change the owner of the `conf` directory to `lsadm:lsadm` (the WebAdmin Console user) so that only the WebAdmin Console will have the ability to manipulate Example2's configuration.
 ```bash
 chown lsadm:lsadm /usr/local/lsws/Example2/conf
 ```
-2. Add an virtual hosts (in the WebAdmin console > Virtual Hosts > Add)
-3. Give the new virtual hosts an appropriate name, Root, Config file. 
+3. Add the `Eample2` virtual host to the WebAdmin Console. Navigate to **Virtual Hosts > Add**, and configure the settings like so:
   - **Virtual Host Name** = `Example2`
   - **Virtual Host Root** = `$SERVER_ROOT/Example2`
   - **Config File** = `$SERVER_ROOT/conf/vhosts/Example2/vhost.conf`
   - **Enable Scripts/ExtApps** = `Yes` 
   - **Restrained** = `No`
-4. You might see "file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE" alert due to we starting from scratch, click the CLICK TO CREATE button so OpenLiteSpeed will make one for me. 
-5. Click save button, go back into the Example2 virtual host's configurations, and specify the document root under the General tab
+4. You might see the following warning:```file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE``` This is because you are starting from scratch with this virtual host's configuration. Go ahead and click to create.
+5. Click the **Save** button, return to Example2's configuration, and change the following settings under the **General** tab:
   - **Document Root** = `/usr/local/lsws/Example2/html`
   - **Index Files** = `index.html, index.php`
-6. I'd also recommend you to enable the Rewrite feature which is under the Rewrite tab
+6. We recommend enabling the Rewrite feature as well. Change the following settings under the **Rewrite** tab:
   - **Enable Rewrite** = `Yes`
   - **Auto Load from .htaccess** = `yes`
 
+## Set up Listeners
 
-## Listeners setup
-### Listener create 
+### Create a Listener 
 {: .no_toc}
-Go to the WebAdmin console > Listeners. The default listener that listens to all IPs on port 8088. You might want to create another two listeners for both HTTP and HTTPS ports.  
-1. Click the Add button to create a HTTP listener with following settings:
+Navigate to **Listeners** in the WebAdmin Console. There is already a default listener that listens to all IPs on port 8088, but you might want to create another two listeners for both HTTP and HTTPS ports. Here is how:
+1. Click the **Add** button to create an HTTP listener with following settings:
   - **Listener Name** = `HTTP`
   - **IP Address** = `ANY IPv4`
   - **Port** = `80`
   - **Secure** = `No`
-2. Click the Add button to create a HTTPS listener with following settings:
+2. Click the **Add** button to create an HTTPS listener with following settings:
   - **Listener Name** = `HTTPS`
   - **IP Address** = `ANY IPv4`
   - **Port** = `443`
   - **Secure** = `Yes`
-3. Navigate  to the WebAdmin Console > Listeners > HTTPS (or whatever name you used) > SSL, and click the Edit button. Specify the private key and certificate path, then click the Save button.
-  Let's Encrypt
+3. To configure SSL on the listener you named `HTTPS`, navigate to **Listeners > HTTPS > SSL**, and click the **Edit** button. Specify the private key and certificate path, then click the **Save** button.
+  Here are some possible values for Let's Encrypt, but be sure to use your own correct path:
   - **Private Key File** = `/etc/letsencrypt/live/example.com/privkey.pem` (Use your own key path)
   - **Certificate File** = `/etc/letsencrypt/live/example.com/fullchain.pem` (Use your own cert path)
   - **Chained Certificate** = `Yes`
-  
-  Temporary certificate(web admin) or [private self-signed certificate](https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl)
+  Here are some possible values for a temporary WebAdmin certificate or a [private self-signed certificate](https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl), but be sure to use your own correct path:
   - **Private Key File** = `/usr/local/lsws/conf/example.key` (Use your own key path)
   - **Certificate File** = `/usr/local/lsws/conf/example.crt` (Use your own cert path)
   - **Chained Certificate** = `Not Set`
 
-### Virtual Hosts mapping
+### Map Virtual Hosts
 {: .no_toc}
-Go to the WebAdmin console > Listeners > HTTP, click the Add button from the Virtual Host Mappings area and set with following settings. 
+Navigate to **Listeners > HTTP > Virtual Host Mappings** and click the **Add** button. Use the following values to map the HTTP listener to Example2 virtual host:
   - **Virtual Host** = `Example2`
   - **Domains** = `example2.com, www.example2.com`
-
-Go to the WebAdmin console > Listeners > HTTPS, click the Add button from the Virtual Host Mappings area and set with following settings. 
-  - **Virtual Host** = `Example2`
-  - **Domains** = `example2.com, www.example2.com`
+Repeat for the HTTPS listener using the exact same settings.
 
 ## Set up PHP
 
@@ -97,7 +92,7 @@ Go to the WebAdmin console > Listeners > HTTPS, click the Add button from the V
 
 This example creates an external application for PHP 8.0, however, you can use the default external applications with some modification, if you prefer. 
 
-1. Add an external application in the **WebAdmin Console**: Navigate to **Server Configuration > External App > Add**
+1. Navigate to **Server Configuration > External App > Add**
 2. Choose `LiteSpeed SAPI App` for the application type
 3. Give the new external application an appropriate name, address, maximum number of connections, etc., using the following example as a guide:
   - **Name**: `lsphp80`
@@ -120,7 +115,7 @@ LSAPI_AVOID_FORK=200M```
 #### Set up Script Handlers at the Server Level 
 {: .no_toc}
 
-1. Add any script handlers in the **WebAdmin Console**: Navigate to **Server Configuration > Script handler > Add**
+1. Navigate to **Server Configuration > Script handler > Add**
 2. Give the new script handler appropriate settings, using the following example as a guide:
   - **Suffixes**: `php`
   - **Handler Type**: `LiteSpeed SAPI`
@@ -129,7 +124,7 @@ LSAPI_AVOID_FORK=200M```
 #### Set up PHP at the Virtual Host Level 
 {: .no_toc}
 If you want to use different settings for any of your virtual hosts, you can set up the same external applications and script handlers at the virtual host level, which will override any server-level script handler settings. 
-1. Add a virtual host-level script handler in the **WebAdmin Console**: Navigate to **Server Configuration > Virtual Hosts > [Example] > Script Handlers > Add**, replacing "[Example]" with the name of the actual Virtual Host you want to edit.
+1. Navigate to **Server Configuration > Virtual Hosts > [Example] > Script Handlers > Add**, replacing "[Example]" with the name of the actual Virtual Host you want to edit.
 2. Give the new script handler appropriate settings, using the following example as a guide:
   - **Suffixes**: `php`
   - **Handler Type**: `LiteSpeed SAPI`
@@ -178,22 +173,23 @@ scriptHandler{
 }
 ```
 
-## SSL setup
+## Set up SSL for Virtual Hosts
 
-OpenLiteSpeed supports Server Name Indication (SNI), allowing users to set SSL certificates at the virtual host level. If you have additional virtual host with a SSL certificate,
+OpenLiteSpeed supports Server Name Indication (SNI), allowing users to set SSL certificates at the virtual host level. To set up SSL for our Example2 virtual host:
 
-1. Add the certificate in the **WebAdmin Console**: Navigate to **Virtual Hosts > "new VH" > SSL > Edit SSL Private Key & Certificate**
-2. Give the new SSL settings with the following example as a guide:
-  - **Private Key File** = `/usr/local/lsws/conf/example.key` (Use your own key path)
-  - **Certificate File** = `/usr/local/lsws/conf/example.crt` (Use your own cert path)
+1. Navigate to **Virtual Hosts > Example2 > SSL > Edit SSL Private Key & Certificate**
+2. Update the new SSL settings with the following example as a guide, using your own file paths:
+  - **Private Key File** = `/usr/local/lsws/conf/example.key`
+  - **Certificate File** = `/usr/local/lsws/conf/example.crt`
   - **Chained Certificate** = `Not Set`
 
-Note 1: No need to set an addition listener for different domain or SSL
-Note 2: Even you have SSL set in the VH, you do not want to leave the port 443 listener' SSL empty
+**Note 1**: There is no need to set an additional listener for different domains or SSL
 
-## Cache Setup
-Cache Module is Installed and Enabled by default, so we don't need to change any settings for it. 
+**Note 2**: Even if you have SSL set up in the virtual host, you do not want to leave the port 443 listener's SSL empty
 
-You still need to enable caching for your web apps, and this can be done by [installing the corresponding LSCache plugin](https://docs.litespeedtech.com/lscache/#available-plugins), or using [rewrite rules](https://docs.litespeedtech.com/lscache/noplugin/) in .htaccess if no plugin is available.
+## Set up Caching
+The OpenLiteSpeed Cache Module is installed and enabled by default, so you don't need to change any settings. 
+
+This is a server-level cache, so you will still need to enable caching for your web apps. This can be done simply and easily with our [LSCache plugins](https://docs.litespeedtech.com/lscache/#available-plugins), or by using [rewrite rules](https://docs.litespeedtech.com/lscache/noplugin/) in `.htaccess` if no plugin is available.
 
 
