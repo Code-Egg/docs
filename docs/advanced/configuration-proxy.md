@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Proxy
-parent: Advance
+parent: Advanced
 permalink: /docs/advanced/proxy
 nav_order: 5
 ---
