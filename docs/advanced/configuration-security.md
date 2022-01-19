@@ -2,7 +2,7 @@
 layout: default
 title: Security
 parent: Advance
-permalink: /docs/advance/security
+permalink: /docs/advanced/security
 nav_order: 4
 ---
 
