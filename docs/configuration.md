@@ -88,6 +88,96 @@ Go to the WebAdmin console > Listeners > HTTPS, click the Add button from the V
   - **Virtual Host** = `Example2`
   - **Domains** = `example2.com, www.example2.com`
 
+## Set up PHP
+
+### Method 1: WebAdmin Console
+
+#### Define External Applications at the Server Level
+{: .no_toc}
+
+This example creates an external application for PHP 8.0, however, you can use the default external applications with some modification, if you prefer. 
+
+1. Add an external application in the **WebAdmin Console**: Navigate to **Server Configuration > External App > Add**
+2. Choose `LiteSpeed SAPI App` for the application type
+3. Give the new external application an appropriate name, address, maximum number of connections, etc., using the following example as a guide:
+  - **Name**: `lsphp80`
+  - **Address**: `uds://tmp/lshttpd/lsphp80.sock`
+  - **Max Connections**: `10`
+  - **Environment**: 
+  ```PHP_LSAPI_CHILDREN=10
+LSAPI_AVOID_FORK=200M```
+  - **Initial Request Timeout (secs)**: `60`
+  - **Persistent Connection**: `Yes`
+  - **Start By Server**: `1` 
+  - **Command**: `lsphp80/bin/lsphp`
+  - **Back Log**: `100`
+  - **Instances**: `1`
+  - **Memory Soft Limit (bytes)**: `2047M`
+  - **Memory Hard Limit (bytes)**: `2047M`
+  - **Process Soft Limit**: `1400`
+  - **Process Hard Limit**: `1500`
+
+#### Set up Script Handlers at the Server Level 
+{: .no_toc}
+
+1. Add any script handlers in the **WebAdmin Console**: Navigate to **Server Configuration > Script handler > Add**
+2. Give the new script handler appropriate settings, using the following example as a guide:
+  - **Suffixes**: `php`
+  - **Handler Type**: `LiteSpeed SAPI`
+  - **Handler Name**: `lsphp80`
+
+#### Set up PHP at the Virtual Host Level 
+{: .no_toc}
+If you want to use different settings for any of your virtual hosts, you can set up the same external applications and script handlers at the virtual host level, which will override any server-level script handler settings. 
+1. Add a virtual host-level script handler in the **WebAdmin Console**: Navigate to **Server Configuration > Virtual Hosts > [Example] > Script Handlers > Add**, replacing "[Example]" with the name of the actual Virtual Host you want to edit.
+2. Give the new script handler appropriate settings, using the following example as a guide:
+  - **Suffixes**: `php`
+  - **Handler Type**: `LiteSpeed SAPI`
+  - **Handler Name**: `lsphp80`
+
+### Method 2: Command Line Interface 
+{: .d-inline-block }
+Advanced
+{: .label .label-yellow }
+
+#### Define External Applications for PHPs
+{: .no_toc}
+Edit the `httpd_config.conf` file as follows:
+
+```bash
+extProcessor lsphp80{
+    type                            lsapi
+    address                         uds://tmp/lshttpd/lsphp.sock
+    maxConns                        35
+    env                             PHP_LSAPI_CHILDREN=35
+    env                             LSAPI_AVOID_FORK=200M
+    initTimeout                     60
+    retryTimeout                    0
+    persistConn                     1
+    pcKeepAliveTimeout
+    respBuffer                      0
+    autoStart                       1
+    path                            lsphp80/bin/lsphp
+    backlog                         100
+    instances                       1
+    priority                        0
+    memSoftLimit                    2047M
+    memHardLimit                    2047M
+    procSoftLimit                   1400
+    procHardLimit                   1500
+}
+```
+
+#### Set up Script Handlers 
+{: .no_toc}
+Add the following to the `httpd_config.conf` file:
+
+```bash
+scriptHandler{
+    add lsapi:lsphp80  php
+}
+```
+
 ## SSL setup
 
 OpenLiteSpeed supports Server Name Indication (SNI), allowing users to set SSL certificates at the virtual host level. If you have additional virtual host with a SSL certificate,

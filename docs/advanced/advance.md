@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Advance
+title: Advanced
 nav_order: 10
 has_children: true
 permalink: /advance
