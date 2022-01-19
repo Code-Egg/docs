@@ -43,11 +43,10 @@ chown lsadm:lsadm /usr/local/lsws/Example2/conf
   - **Config File** = `$SERVER_ROOT/conf/vhosts/Example2/vhost.conf`
   - **Enable Scripts/ExtApps** = `Yes` 
   - **Restrained** = `No`
-4. You might see the following warning:
+4. You might see the following warning if you are starting from scratch with this virtual host's configuration. Go ahead and click to create:
 ```
 file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE
 ``` 
-This is because you are starting from scratch with this virtual host's configuration. Go ahead and click to create.
 5. Click the **Save** button, return to Example2's configuration, and change the following settings under the **General** tab:
   - **Document Root** = `/usr/local/lsws/Example2/html`
   - **Index Files** = `index.html, index.php`
