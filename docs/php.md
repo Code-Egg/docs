@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PHP
+title: PHP Setup
 nav_order: 3
 permalink: /php
 ---
@@ -110,3 +110,6 @@ If you want to use different settings for any of your virtual hosts, you can set
   - **Suffixes**: `php`
   - **Handler Type**: `LiteSpeed SAPI`
   - **Handler Name**: `lsphp80`
+
+## [Next Page - Configuration](/docs/configuration)
+{: .no_toc}

@@ -36,7 +36,7 @@ New
 
 ### Supported OS 
 
-- [Debian 7, 8, 9, 10](https://www.debian.org/distrib/)
+- [Debian 7, 8, 9, 10, 11](https://www.debian.org/distrib/)
 - [Ubuntu 16, 18, 20](https://www.ubuntu.com/download)
 - [CentOS 6, 7, 8](https://www.centos.org/download/)
 - [AlamaLinux 8](https://mirrors.almalinux.org/isos.html)
@@ -51,7 +51,6 @@ OpenLiteSpeed is &copy; 2013-{{ "now" | date: "%Y" }} by [LiteSpeed Technologies
 
 OpenLiteSpeed is distributed under a [GPLv3 license](https://www.litespeedtech.com/open-source/openlitespeed).
 
-<!-- Only uncomment this if you can link it to the actual OLS repo
 
 ### Contributors
 Many thanks to our OpenLiteSpeed contributors!
@@ -64,5 +63,4 @@ Many thanks to our OpenLiteSpeed contributors!
 {% endfor %}
 </ul>
 
--->
 
