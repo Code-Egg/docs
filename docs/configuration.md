@@ -43,9 +43,11 @@ chown lsadm:lsadm /usr/local/lsws/Example2/conf
   - **Config File** = `$SERVER_ROOT/conf/vhosts/Example2/vhost.conf`
   - **Enable Scripts/ExtApps** = `Yes` 
   - **Restrained** = `No`
-4. You might see the following warning:```
-file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE
-``` This is because you are starting from scratch with this virtual host's configuration. Go ahead and click to create.
+4. You might see the following warning:
+  ```
+  file /usr/local/lsws/conf/vhosts/Example2/vhost.conf does not exist. CLICK TO CREATE
+  ``` 
+  This is because you are starting from scratch with this virtual host's configuration. Go ahead and click to create.
 5. Click the **Save** button, return to Example2's configuration, and change the following settings under the **General** tab:
   - **Document Root** = `/usr/local/lsws/Example2/html`
   - **Index Files** = `index.html, index.php`
@@ -68,15 +70,15 @@ Navigate to **Listeners** in the WebAdmin Console. There is already a default li
   - **IP Address** = `ANY IPv4`
   - **Port** = `443`
   - **Secure** = `Yes`
-3. To configure SSL on the listener you named `HTTPS`, navigate to **Listeners > HTTPS > SSL**, and click the **Edit** button. Specify the private key and certificate path, then click the **Save** button.
-  - Here are some possible values for Let's Encrypt, but be sure to use your own correct path:
-    - **Private Key File** = `/etc/letsencrypt/live/example.com/privkey.pem`
-    - **Certificate File** = `/etc/letsencrypt/live/example.com/fullchain.pem`
-    - **Chained Certificate** = `Yes`
-  - Here are some possible values for a temporary WebAdmin certificate or a [private self-signed certificate](https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl), but be sure to use your own correct path:
-    - **Private Key File** = `/usr/local/lsws/conf/example.key`
-    - **Certificate File** = `/usr/local/lsws/conf/example.crt`
-    - **Chained Certificate** = `Not Set`
+3. To configure SSL on the listener you named `HTTPS`, navigate to **Listeners > HTTPS > SSL**, and click the **Edit** button. Specify the private key and certificate path, then click the **Save** button. Here are some examples, but be sure to use your own correct file path:
+    - Let's Encrypt:
+        - **Private Key File** = `/etc/letsencrypt/live/example.com/privkey.pem`
+        - **Certificate File** = `/etc/letsencrypt/live/example.com/fullchain.pem`
+        - **Chained Certificate** = `Yes`
+    - Temporary WebAdmin certificate or a [private self-signed certificate](https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl):
+        - **Private Key File** = `/usr/local/lsws/conf/example.key`
+        - **Certificate File** = `/usr/local/lsws/conf/example.crt`
+        - **Chained Certificate** = `Not Set`
 
 ### Map Virtual Hosts
 {: .no_toc}
