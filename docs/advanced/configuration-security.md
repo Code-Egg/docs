@@ -20,7 +20,7 @@ nav_order: 4
 
 OpenLiteSpeed features reCAPTCHA as a method of defense against DDoS attack. 
 
-When a visitor accesses the website, they will need to go though reCAPTCHA validation. After passing the reCAPTCHA validation, the visitor is temporarily whitelisted as long as they continue to browse the site. Once the visitor has become inactive, reCAPTCHA is once again enabled for that visitor's next request.
+When a visitor accesses the website, they will need to go though reCAPTCHA validation. After passing the reCAPTCHA validation, the visitor is temporarily allowlisted as long as they continue to browse the site. Once the visitor has become inactive, reCAPTCHA is once again enabled for that visitor's next request.
 
 If the user fails to pass reCAPTCHA validation a few times, the server will return a 403 error and then drop the connection from that IP. 
 
