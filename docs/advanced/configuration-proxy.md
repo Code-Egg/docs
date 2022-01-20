@@ -41,6 +41,8 @@ Now you have OpenLiteSpeed ready to proxy to your backend server. The next step 
 
 **Note:** If you are using IP-based virtual hosting, you will need to set up a different web server external application for each vhost, as each web server external application only reroutes traffic to a single IP address.
 
+Once you have set up your preferred proxy method, don't forget to [map the proxy virtual host to your listeners](#map-the-proxy-vhost-to-your-listeners).
+
 ## Proxy Method
 
 For this guide we will use the default `Example` virtual host and proxy files to an Apache backend.
@@ -70,7 +72,9 @@ RewriteCond %{HTTPS} !=on
 REWRITERULE ^(.*)$ HTTP://apachehttp/$1 [P,L,E=PROXY-HOST:WWW.EXAMPLE1.COM]
 RewriteRule ^(.*)$ HTTPS://apachehttps/$1 [P,L,E=PROXY-HOST:WWW.EXAMPLE1.COM]
 ```
-**Note:** 
+
+##### Notes
+
     - `apache`, `apachehttp`, and `apachehttps` are the names of proxy (web server) external applications you have presumably created. If your proxies have other names, use them instead.
     - For IP-based virtual hosting, you will need to set up a different web server external application for each vhost, as each web server external application only reroutes traffic to a single IP address.
     - Add `https://` in front if the external web server uses HTTPS. Port is optional if the external web server uses the standard ports.
