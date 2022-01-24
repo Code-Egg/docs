@@ -59,4 +59,10 @@ Many thanks to our OpenLiteSpeed contributors!
 {% endfor %}
 </ul>
 
-
+<ul class="list-style-none">
+{% for contributor in https://github.com/litespeedtech/openlitespeed/graphs/contributors %}
+  <li class="d-inline-block mr-1">
+     <a href="{{ contributor.html_url }}"><img src="{{ contributor.avatar_url }}" width="32" height="32" alt="{{ contributor.login }}"/></a>
+  </li>
+{% endfor %}
+</ul>
