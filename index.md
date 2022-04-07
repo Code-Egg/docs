@@ -6,7 +6,6 @@ description: "OpenLiteSpeed is a high-performance, lightweight, open source HTTP
 permalink: /
 ---
 
-[Dark](http://example.com/){: .btn }
 [light](http://example.com/){: .btn }
 
 Preview dark color scheme
