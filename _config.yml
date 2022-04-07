@@ -13,6 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+
+# wade: add Just the Docs
+remote_theme: just-the-docs/just-the-docs
+# wade: add Just the Docs
+
 title: OpenLiteSpeed Documentation
 description: OpenLiteSpeed Documentation
 baseurl: "/docs" # the subpath of your site, e.g. /blog
